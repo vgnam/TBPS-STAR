@@ -1,0 +1,24 @@
+
+== emb/clip_cuhk | enrolled 70% of 1000 test IDs | 5 seeds
+gallery 2154 imgs | known q 4316 | unknown q 1840
+closed-set on known queries: R1 9.1  mAP 8.9
+score                  AUROC          FPR@95            OSCR          DIR@1%         DIR@10%
+max_cos          51.7 +- 1.1     94.2 +- 0.8      5.4 +- 0.2      0.5 +- 0.1      2.0 +- 0.1
+margin@2         50.8 +- 0.4     94.9 +- 0.7      5.6 +- 0.1      0.5 +- 0.0      2.0 +- 0.1
+margin@10        51.2 +- 0.5     94.9 +- 0.5      6.2 +- 0.2      0.8 +- 0.2      2.9 +- 0.3
+energy           50.9 +- 0.8     94.5 +- 0.6      4.1 +- 0.1      0.1 +- 0.0      0.9 +- 0.0
+max_softmax      51.4 +- 0.9     94.7 +- 0.4      6.1 +- 0.2      0.8 +- 0.1      2.7 +- 0.3
+zscore           50.4 +- 0.2     94.9 +- 0.5      5.7 +- 0.2      0.6 +- 0.1      2.0 +- 0.2
+csls             53.5 +- 0.9     94.0 +- 0.4      7.2 +- 0.1      2.1 +- 0.3      4.7 +- 0.2
+evt              50.2 +- 0.5     94.9 +- 0.7      5.4 +- 0.2      0.3 +- 0.1      1.8 +- 0.2
+
+== threshold set on val (70% enrolled) for FAR=5%, applied to test with other gallery sizes
+score                  enr 0.2           enr 0.4           enr 0.7           enr 0.9
+max_cos      FAR  3.5 TAR  5.2 FAR  3.1 TAR  4.9 FAR  6.8 TAR  6.9 FAR  8.8 TAR  8.7
+margin@2     FAR  9.2 TAR 13.7 FAR  8.3 TAR 10.7 FAR  9.6 TAR  9.4 FAR  9.3 TAR  9.1
+margin@10    FAR 17.6 TAR 24.0 FAR  9.2 TAR 12.8 FAR 11.4 TAR 11.3 FAR  9.9 TAR 11.3
+energy       FAR  0.0 TAR  0.0 FAR  0.1 TAR  0.3 FAR  3.7 TAR  4.4 FAR 11.0 TAR  8.9
+max_softmax  FAR 60.1 TAR 64.5 FAR 20.7 TAR 24.3 FAR 11.6 TAR 12.5 FAR  8.2 TAR  9.3
+zscore       FAR  4.0 TAR  7.6 FAR  5.2 TAR  6.7 FAR  8.0 TAR  7.8 FAR  9.3 TAR  9.3
+csls         FAR  3.8 TAR 12.1 FAR  4.6 TAR  9.4 FAR  6.4 TAR  8.4 FAR  4.8 TAR  8.6
+evt          FAR  2.0 TAR  4.4 FAR  4.1 TAR  4.8 FAR  6.1 TAR  6.6 FAR  8.6 TAR  8.0

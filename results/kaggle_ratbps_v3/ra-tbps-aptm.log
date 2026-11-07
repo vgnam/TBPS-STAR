@@ -1,0 +1,144 @@
+[{"stream_name":"stdout","time":1.023086802,"data":"$ nvidia-smi --query-gpu=name,memory.total --format=csv\n"}
+,{"stream_name":"stdout","time":1.054202605,"data":"name, memory.total [MiB]\n"}
+,{"stream_name":"stdout","time":1.054222265,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":1.054227302,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":1.060787076,"data":"$ pip install -q gdown \"transformers==4.55.0\"\n"}
+,{"stream_name":"stderr","time":18.815877269,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":18.815907769,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":18.815912055,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":18.815914868,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":18.815917941,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":19.044864378,"data":"$ curl -sL --fail -o cuhk.tar.gz https://huggingface.co/datasets/cjc/CHUK-PEDES/resolve/main/CUHK-PEDES.tar.gz \u0026\u0026 mkdir -p data \u0026\u0026 tar -xzf cuhk.tar.gz -C data \u0026\u0026 rm cuhk.tar.gz\n"}
+,{"stream_name":"stdout","time":36.187240357,"data":"$ git clone -q --depth 1 https://github.com/Shuyu-XJTU/APTM.git third_party/APTM\n"}
+,{"stream_name":"stdout","time":38.91339271,"data":"$ gdown -q \"1dokRhjYL71VbzFfLfyyDmh7MXUOyBySf\" -O ft_cuhk.zip \u0026\u0026 mkdir -p checkpoints/aptm_ft_cuhk \u0026\u0026 unzip -q ft_cuhk.zip -d checkpoints/aptm_ft_cuhk \u0026\u0026 rm ft_cuhk.zip\n"}
+,{"stream_name":"stdout","time":59.959601525,"data":"checkpoints found: ['checkpoints/aptm_ft_cuhk/ft_cuhk/checkpoint_best.pth']\n"}
+,{"stream_name":"stdout","time":59.960279151,"data":"$ python -u -m ratbps.extract_aptm --fmt cuhk --root data/CUHK-PEDES --split test --ckpt checkpoints/aptm_ft_cuhk/ft_cuhk/checkpoint_best.pth --aptm third_party/APTM --topn 128 --out emb/cuhk_test_fp16.npz --amp\n"}
+,{"stream_name":"stderr","time":77.843163318,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers\n"}
+,{"stream_name":"stderr","time":77.843199406,"data":"  warnings.warn(f\"Importing from {__name__} is deprecated, please import via timm.layers\", FutureWarning)\n"}
+,{"stream_name":"stdout","time":90.306237133,"data":"use_swin\n"}
+,{"stream_name":"stderr","time":90.353728024,"data":"/usr/local/lib/python3.13/dist-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4381.)\n"}
+,{"stream_name":"stderr","time":90.353761423,"data":"  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]\n"}
+,{"stream_name":"stdout","time":94.620376905,"data":"loaded checkpoints/aptm_ft_cuhk/ft_cuhk/checkpoint_best.pth (unexpected keys: 0)\n"}
+,{"stream_name":"stdout","time":98.629914648,"data":"cuhk/test: 3074 images, 6156 captions\n"}
+,{"stream_name":"stdout","time":117.934083986,"data":"images done 19s, tokens (3074, 49, 1024)\n"}
+,{"stream_name":"stdout","time":120.317297568,"data":"  captions 32/6156  22s\n"}
+,{"stream_name":"stdout","time":583.444547402,"data":"wrote emb/cuhk_test_fp16.npz in 485s\n"}
+,{"stream_name":"stdout","time":591.090142804,"data":"$ python -u -m ratbps.extract_aptm --fmt cuhk --root data/CUHK-PEDES --split test --ckpt checkpoints/aptm_ft_cuhk/ft_cuhk/checkpoint_best.pth --aptm third_party/APTM --topn 128 --out emb/cuhk_test_fp32.npz\n"}
+,{"stream_name":"stderr","time":595.150845392,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers\n"}
+,{"stream_name":"stderr","time":595.150881657,"data":"  warnings.warn(f\"Importing from {__name__} is deprecated, please import via timm.layers\", FutureWarning)\n"}
+,{"stream_name":"stdout","time":598.212933753,"data":"use_swin\n"}
+,{"stream_name":"stderr","time":598.215289539,"data":"/usr/local/lib/python3.13/dist-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4381.)\n"}
+,{"stream_name":"stderr","time":598.215313434,"data":"  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]\n"}
+,{"stream_name":"stdout","time":602.371557069,"data":"loaded checkpoints/aptm_ft_cuhk/ft_cuhk/checkpoint_best.pth (unexpected keys: 0)\n"}
+,{"stream_name":"stdout","time":604.220986318,"data":"cuhk/test: 3074 images, 6156 captions\n"}
+,{"stream_name":"stdout","time":638.950425621,"data":"images done 35s, tokens (3074, 49, 1024)\n"}
+,{"stream_name":"stderr","time":639.114875128,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":639.117746794,"data":"  File \"\u003cfrozen runpy\u003e\", line 203, in _run_module_as_main\n"}
+,{"stream_name":"stderr","time":639.117778444,"data":"  File \"\u003cfrozen runpy\u003e\", line 88, in _run_code\n"}
+,{"stream_name":"stderr","time":639.11792356,"data":"  File \"/kaggle/temp/tbps/ratbps/extract_aptm.py\", line 200, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":639.117956982,"data":"    main()\n"}
+,{"stream_name":"stderr","time":639.117964245,"data":"    ~~~~^^\n"}
+,{"stream_name":"stderr","time":639.117973899,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n"}
+,{"stream_name":"stderr","time":639.117979816,"data":"    return func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":639.118112342,"data":"  File \"/kaggle/temp/tbps/ratbps/extract_aptm.py\", line 168, in main\n"}
+,{"stream_name":"stderr","time":639.118125065,"data":"    h, itm = fuse(rep_e, rep_a, top_idx.reshape(-1))\n"}
+,{"stream_name":"stderr","time":639.118128892,"data":"             ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.118132349,"data":"  File \"/kaggle/temp/tbps/ratbps/extract_aptm.py\", line 143, in fuse\n"}
+,{"stream_name":"stderr","time":639.118135975,"data":"    h = model.get_cross_embeds(ie, ia, text_embeds=t_emb[s:s + args.pair_bs],\n"}
+,{"stream_name":"stderr","time":639.118155648,"data":"        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.118161576,"data":"                               text_atts=t_att[s:s + args.pair_bs])[:, 0, :]\n"}
+,{"stream_name":"stderr","time":639.118167646,"data":"                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.118173299,"data":"  File \"/kaggle/temp/tbps/third_party/APTM/models/aptm.py\", line 286, in get_cross_embeds\n"}
+,{"stream_name":"stderr","time":639.118178495,"data":"    return encoder(encoder_embeds=text_embeds,\n"}
+,{"stream_name":"stderr","time":639.118183423,"data":"           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.118204158,"data":"                   attention_mask=text_atts,\n"}
+,{"stream_name":"stderr","time":639.118208985,"data":"                   ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.118213727,"data":"    ...\u003c3 lines\u003e...\n"}
+,{"stream_name":"stderr","time":639.11821848,"data":"                   mode='fusion',\n"}
+,{"stream_name":"stderr","time":639.118222551,"data":"                   ^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.118226267,"data":"                   ).last_hidden_state\n"}
+,{"stream_name":"stderr","time":639.11823008,"data":"                   ^\n"}
+,{"stream_name":"stderr","time":639.118236946,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":639.118241193,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":639.118244969,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.118248835,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
+,{"stream_name":"stderr","time":639.118252882,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":639.118315333,"data":"  File \"/kaggle/temp/tbps/third_party/APTM/models/bert.py\", line 1057, in forward\n"}
+,{"stream_name":"stderr","time":639.118323864,"data":"    encoder_outputs = self.encoder(\n"}
+,{"stream_name":"stderr","time":639.11832842,"data":"        embedding_output,\n"}
+,{"stream_name":"stderr","time":639.118332042,"data":"    ...\u003c9 lines\u003e...\n"}
+,{"stream_name":"stderr","time":639.118336881,"data":"        mode=mode,\n"}
+,{"stream_name":"stderr","time":639.118340876,"data":"    )\n"}
+,{"stream_name":"stderr","time":639.118346239,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":639.118351506,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":639.118356254,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.118403277,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
+,{"stream_name":"stderr","time":639.118410869,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":639.118481839,"data":"  File \"/kaggle/temp/tbps/third_party/APTM/models/bert.py\", line 603, in forward\n"}
+,{"stream_name":"stderr","time":639.118489382,"data":"    layer_outputs = layer_module(\n"}
+,{"stream_name":"stderr","time":639.118494109,"data":"        hidden_states,\n"}
+,{"stream_name":"stderr","time":639.118497971,"data":"    ...\u003c5 lines\u003e...\n"}
+,{"stream_name":"stderr","time":639.118501817,"data":"        output_attentions,\n"}
+,{"stream_name":"stderr","time":639.118505651,"data":"    )\n"}
+,{"stream_name":"stderr","time":639.118534487,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":639.118542309,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":639.118547427,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.118591814,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
+,{"stream_name":"stderr","time":639.118598474,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":639.11873302,"data":"  File \"/kaggle/temp/tbps/third_party/APTM/models/bert.py\", line 506, in forward\n"}
+,{"stream_name":"stderr","time":639.11874025,"data":"    cross_attention_outputs = self.crossattention(\n"}
+,{"stream_name":"stderr","time":639.118744554,"data":"        attention_output,\n"}
+,{"stream_name":"stderr","time":639.118748366,"data":"    ...\u003c4 lines\u003e...\n"}
+,{"stream_name":"stderr","time":639.11875269,"data":"        output_attentions=output_attentions,\n"}
+,{"stream_name":"stderr","time":639.11875634,"data":"    )\n"}
+,{"stream_name":"stderr","time":639.118768142,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":639.118773194,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":639.118777451,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.118860694,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
+,{"stream_name":"stderr","time":639.118872524,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":639.118901599,"data":"  File \"/kaggle/temp/tbps/third_party/APTM/models/bert.py\", line 408, in forward\n"}
+,{"stream_name":"stderr","time":639.118914944,"data":"    self_outputs = self.self(\n"}
+,{"stream_name":"stderr","time":639.118919804,"data":"        hidden_states,\n"}
+,{"stream_name":"stderr","time":639.118923758,"data":"    ...\u003c5 lines\u003e...\n"}
+,{"stream_name":"stderr","time":639.118927818,"data":"        output_attentions,\n"}
+,{"stream_name":"stderr","time":639.118931574,"data":"    )\n"}
+,{"stream_name":"stderr","time":639.119930365,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":639.119949942,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":639.11995546,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.119959729,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
+,{"stream_name":"stderr","time":639.119964029,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":639.119967961,"data":"  File \"/kaggle/temp/tbps/third_party/APTM/models/bert.py\", line 285, in forward\n"}
+,{"stream_name":"stderr","time":639.119972741,"data":"    key_layer = self.transpose_for_scores(self.key(encoder_hidden_states))\n"}
+,{"stream_name":"stderr","time":639.119976732,"data":"                                          ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.119981453,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":639.119986092,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":639.119989967,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.119994219,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
+,{"stream_name":"stderr","time":639.11999899,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":639.120003759,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/linear.py\", line 134, in forward\n"}
+,{"stream_name":"stderr","time":639.12000802,"data":"    return F.linear(input, self.weight, self.bias)\n"}
+,{"stream_name":"stderr","time":639.120024142,"data":"           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":639.120028835,"data":"RuntimeError: mat1 and mat2 must have the same dtype, but got Half and Float\n"}
+,{"stream_name":"stderr","time":641.019384156,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":641.020662315,"data":"  File \"/kaggle/src/script.py\", line 55, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":641.020693436,"data":"    extract(\"cuhk\", \"data/CUHK-PEDES\", \"test\", \"emb/cuhk_test_fp32.npz\", TOPN, amp=False)\n"}
+,{"stream_name":"stderr","time":641.020761961,"data":"    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":641.020766945,"data":"  File \"/kaggle/src/script.py\", line 48, in extract\n"}
+,{"stream_name":"stderr","time":641.020771327,"data":"    sh(f\"python -u -m ratbps.extract_aptm --fmt {fmt} --root {root} --split {split} --ckpt {ckpt} \"\n"}
+,{"stream_name":"stderr","time":641.020775612,"data":"    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":641.020779681,"data":"       f\"--aptm third_party/APTM --topn {topn} --out {out}{' --amp' if amp else ''}{' --gt' if gt else ''}\")\n"}
+,{"stream_name":"stderr","time":641.020783936,"data":"       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":641.020788149,"data":"  File \"/kaggle/src/script.py\", line 22, in sh\n"}
+,{"stream_name":"stderr","time":641.020792001,"data":"    subprocess.run(cmd, shell=True, check=True)\n"}
+,{"stream_name":"stderr","time":641.02079606,"data":"    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":641.020800302,"data":"  File \"/usr/lib/python3.13/subprocess.py\", line 578, in run\n"}
+,{"stream_name":"stderr","time":641.020804743,"data":"    raise CalledProcessError(retcode, process.args,\n"}
+,{"stream_name":"stderr","time":641.020853573,"data":"                             output=stdout, stderr=stderr)\n"}
+,{"stream_name":"stderr","time":641.020966604,"data":"subprocess.CalledProcessError: Command 'python -u -m ratbps.extract_aptm --fmt cuhk --root data/CUHK-PEDES --split test --ckpt checkpoints/aptm_ft_cuhk/ft_cuhk/checkpoint_best.pth --aptm third_party/APTM --topn 128 --out emb/cuhk_test_fp32.npz' returned non-zero exit status 1.\n"}
+,{"stream_name":"stderr","time":642.983595928,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":642.983626343,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":643.276853494,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":643.27688126,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":644.139038319,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":645.240834447,"data":"[NbConvertApp] Writing 413039 bytes to __results__.html\n"}
+]

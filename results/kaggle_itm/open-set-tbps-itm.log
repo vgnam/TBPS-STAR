@@ -1,0 +1,30 @@
+[{"stream_name":"stdout","time":0.891729304,"data":"$ nvidia-smi --query-gpu=name,memory.total --format=csv\n"}
+,{"stream_name":"stdout","time":0.951144997,"data":"name, memory.total [MiB]\n"}
+,{"stream_name":"stdout","time":0.951167885,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":0.951172347,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":0.961432184,"data":"$ curl -sL --fail -o cuhk.tar.gz https://huggingface.co/datasets/cjc/CHUK-PEDES/resolve/main/CUHK-PEDES.tar.gz \u0026\u0026 mkdir -p data \u0026\u0026 tar -xzf cuhk.tar.gz -C data \u0026\u0026 rm cuhk.tar.gz\n"}
+,{"stream_name":"stdout","time":68.086743726,"data":"IRRA embeddings from /kaggle/input/notebooks/nammmmmm/open-set-tbps-irra\n"}
+,{"stream_name":"stderr","time":68.501353064,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":79.363678117,"data":"\rLoading weights:   0%|          | 0/472 [00:00\u003c?, ?it/s]\rLoading weights:  45%|████▍     | 212/472 [00:00\u003c00:00, 2082.72it/s]\rLoading weights:  89%|████████▉ | 421/472 [00:00\u003c00:00, 1940.52it/s]\rLoading weights: 100%|██████████| 472/472 [00:00\u003c00:00, 1942.96it/s]\n"}
+,{"stream_name":"stdout","time":82.590851886,"data":"test: encoding 3074 images\n"}
+,{"stream_name":"stdout","time":131.039537324,"data":"  pairs 256/123120  1s\n"}
+,{"stream_name":"stdout","time":223.328007407,"data":"  pairs 25856/123120  93s\n"}
+,{"stream_name":"stdout","time":316.27327993,"data":"  pairs 51456/123120  186s\n"}
+,{"stream_name":"stdout","time":410.22480189,"data":"  pairs 77056/123120  280s\n"}
+,{"stream_name":"stdout","time":503.888115286,"data":"  pairs 102656/123120  374s\n"}
+,{"stream_name":"stdout","time":579.369426775,"data":"test: R1 IRRA 73.15 | R1 after ITM re-rank of top-20 52.83\n"}
+,{"stream_name":"stdout","time":581.251809757,"data":"val: encoding 3078 images\n"}
+,{"stream_name":"stdout","time":631.118818717,"data":"  pairs 256/123160  1s\n"}
+,{"stream_name":"stdout","time":725.753328103,"data":"  pairs 25856/123160  96s\n"}
+,{"stream_name":"stdout","time":819.734555251,"data":"  pairs 51456/123160  190s\n"}
+,{"stream_name":"stdout","time":913.854914191,"data":"  pairs 77056/123160  284s\n"}
+,{"stream_name":"stdout","time":1006.556960962,"data":"  pairs 102656/123160  377s\n"}
+,{"stream_name":"stdout","time":1081.655155876,"data":"val: R1 IRRA 73.11 | R1 after ITM re-rank of top-20 53.73\n"}
+,{"stream_name":"stdout","time":1081.728847636,"data":"done\n"}
+,{"stream_name":"stderr","time":1090.930311512,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1090.930340524,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1091.224011903,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1091.224038263,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1092.063519239,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1093.129679721,"data":"[NbConvertApp] Writing 298310 bytes to __results__.html\n"}
+]

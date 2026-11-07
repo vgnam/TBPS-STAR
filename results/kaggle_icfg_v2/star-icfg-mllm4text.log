@@ -1,0 +1,23 @@
+[{"stream_name":"stdout","time":0.715013553,"data":"$ nvidia-smi --query-gpu=name,memory.total --format=csv\n"}
+,{"stream_name":"stdout","time":0.750076882,"data":"name, memory.total [MiB]\n"}
+,{"stream_name":"stdout","time":0.750099232,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":0.750149633,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":0.757077709,"data":"$ pip install -q easydict prettytable ftfy regex ruamel.yaml peft tensorboard\n"}
+,{"stream_name":"stdout","time":4.636153707,"data":"$ git clone -q --depth 1 https://github.com/nkuzjh/UATTA.git uatta\n"}
+,{"stream_name":"stdout","time":5.75816075,"data":"$ curl -sL --fail -o data/bpe_simple_vocab_16e6.txt.gz https://github.com/openai/CLIP/raw/main/clip/bpe_simple_vocab_16e6.txt.gz\n"}
+,{"stream_name":"stdout","time":6.208834964,"data":"$ mkdir -p checkpoints/mllm4text \u0026\u0026 curl -sL --fail -o checkpoints/mllm4text/best0.pth https://huggingface.co/datasets/TwT-6/MLLM4Text-ReID/resolve/main/best0.pth\n"}
+,{"stream_name":"stdout","time":13.673790884,"data":"$ mkdir -p input/images/ICFG-PEDES\n"}
+,{"stream_name":"stdout","time":74.822239833,"data":"$ ln -sfn /kaggle/input/datasets/meetrathi97/icfg-pedes/ICFG-PEDES/imgs input/images/ICFG-PEDES/imgs\n"}
+,{"stream_name":"stdout","time":97.357281846,"data":"ICFG test split {'test_images': 19848, 'missing': 15599, 'test_ids_before': 1000, 'test_ids_after': 218}\n"}
+,{"stream_name":"stderr","time":97.3673115,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":97.367543273,"data":"  File \"/kaggle/src/script.py\", line 49, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":97.367553951,"data":"    assert len(missing) \u003c= 0.1 * len(test), \"too many ICFG test images missing\"\n"}
+,{"stream_name":"stderr","time":97.367559007,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":97.367563305,"data":"AssertionError: too many ICFG test images missing\n"}
+,{"stream_name":"stderr","time":99.694432724,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":99.69445966,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":99.976305014,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":99.976349079,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":100.92372589,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":101.845385624,"data":"[NbConvertApp] Writing 337666 bytes to __results__.html\n"}
+]

@@ -1,0 +1,10 @@
+Training Model with ['sdm', 'id', 'mlm'] tasks
+===========================ERROR occur in copy visual.positional_embedding, torch.Size([197, 768])=========================
+shape do not match in k :visual.positional_embedding: param_dicttorch.Size([197, 768]) vs self.state_dict()torch.Size([193, 768])
+/kaggle/temp/uatta/uatta/IRRA_UATTA/tta_baselines.py:134: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.no_grad(), torch.cuda.amp.autocast():
+/kaggle/temp/uatta/uatta/IRRA_UATTA/tta_baselines.py:143: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+zero-shot {'R1': 37.26823806762695, 'R5': 55.542118072509766, 'R10': 63.55300521850586, 'mAP': 20.1389102935791, 'mINP': 2.2137789726257324}
+tcr {'online': {'R1': 41.7875862121582, 'R5': 59.618099212646484, 'R10': 67.286376953125, 'mAP': 23.837705612182617, 'mINP': 3.265857219696045}, 'final_model': {'R1': 42.457679748535156, 'R5': 60.23780822753906, 'R10': 67.74486541748047, 'mAP': 24.334571838378906, 'mINP': 3.3512420654296875}, 'seconds': 217.28238224983215}
+-> /kaggle/working/baselines_icfg.json

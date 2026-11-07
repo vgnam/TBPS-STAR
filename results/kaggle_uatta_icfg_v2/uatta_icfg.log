@@ -1,0 +1,844 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793756468.813571      69 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Not using distributed mode
+### Hyper-parameters:
+     output_dir: /kaggle/working/uatta_icfg
+     seed: 42
+     device: cuda
+     batch_size_tta: 16
+     epochs: 10
+     lr: 0.0005
+### Creating test dataset
+     test_txt_set: 19848    test_img_set: 19848
+/usr/local/lib/python3.13/dist-packages/torch/utils/data/dataloader.py:424: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+     test_txt_loader: 39    test_img_loader: 39
+### Creating model
+Training Model with ['sdm', 'id', 'mlm'] tasks
+  0%|                                               | 0.00/335M [00:00<?, ?iB/s]  5%|██                                     | 17.6M/335M [00:00<00:01, 185MiB/s] 11%|████▏                                  | 35.8M/335M [00:00<00:01, 188MiB/s] 16%|██████▎                                | 54.4M/335M [00:00<00:01, 191MiB/s] 22%|████████▍                              | 72.7M/335M [00:00<00:01, 191MiB/s] 28%|██████████▊                            | 93.3M/335M [00:00<00:01, 200MiB/s] 34%|█████████████▍                          | 112M/335M [00:00<00:01, 199MiB/s] 39%|███████████████▋                        | 131M/335M [00:00<00:01, 193MiB/s] 45%|█████████████████▉                      | 150M/335M [00:00<00:00, 194MiB/s] 50%|████████████████████▏                   | 169M/335M [00:00<00:00, 189MiB/s] 56%|██████████████████████▍                 | 188M/335M [00:01<00:00, 192MiB/s] 62%|████████████████████████▊               | 208M/335M [00:01<00:00, 198MiB/s] 68%|███████████████████████████▏            | 227M/335M [00:01<00:00, 182MiB/s] 74%|█████████████████████████████▍          | 247M/335M [00:01<00:00, 188MiB/s] 79%|███████████████████████████████▋        | 265M/335M [00:01<00:00, 189MiB/s] 85%|█████████████████████████████████▊      | 283M/335M [00:01<00:00, 176MiB/s] 90%|███████████████████████████████████▉    | 300M/335M [00:01<00:00, 172MiB/s] 95%|██████████████████████████████████████  | 319M/335M [00:01<00:00, 178MiB/s]100%|████████████████████████████████████████| 335M/335M [00:01<00:00, 187MiB/s]
+===========================ERROR occur in copy visual.positional_embedding, torch.Size([197, 768])=========================
+shape do not match in k :visual.positional_embedding: param_dicttorch.Size([197, 768]) vs self.state_dict()torch.Size([193, 768])
+        [TRAINABLE] prompt_learning_embedding (shape: torch.Size([1, 1, 512]))
+        [TRAINABLE] base_model.positional_embedding (shape: torch.Size([77, 512]))
+        [TRAINABLE] base_model.text_projection (shape: torch.Size([512, 512]))
+        [TRAINABLE] base_model.visual.class_embedding (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.positional_embedding (shape: torch.Size([193, 768]))
+        [TRAINABLE] base_model.visual.proj (shape: torch.Size([768, 512]))
+        [TRAINABLE] base_model.visual.conv1.weight (shape: torch.Size([768, 3, 16, 16]))
+        [TRAINABLE] base_model.visual.ln_pre.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.ln_pre.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.0.attn.in_proj_weight (shape: torch.Size([2304, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.0.attn.in_proj_bias (shape: torch.Size([2304]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.0.attn.out_proj.weight (shape: torch.Size([768, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.0.attn.out_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.0.ln_1.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.0.ln_1.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.0.mlp.c_fc.weight (shape: torch.Size([3072, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.0.mlp.c_fc.bias (shape: torch.Size([3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.0.mlp.c_proj.weight (shape: torch.Size([768, 3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.0.mlp.c_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.0.ln_2.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.0.ln_2.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.1.attn.in_proj_weight (shape: torch.Size([2304, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.1.attn.in_proj_bias (shape: torch.Size([2304]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.1.attn.out_proj.weight (shape: torch.Size([768, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.1.attn.out_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.1.ln_1.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.1.ln_1.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.1.mlp.c_fc.weight (shape: torch.Size([3072, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.1.mlp.c_fc.bias (shape: torch.Size([3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.1.mlp.c_proj.weight (shape: torch.Size([768, 3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.1.mlp.c_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.1.ln_2.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.1.ln_2.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.2.attn.in_proj_weight (shape: torch.Size([2304, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.2.attn.in_proj_bias (shape: torch.Size([2304]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.2.attn.out_proj.weight (shape: torch.Size([768, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.2.attn.out_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.2.ln_1.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.2.ln_1.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.2.mlp.c_fc.weight (shape: torch.Size([3072, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.2.mlp.c_fc.bias (shape: torch.Size([3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.2.mlp.c_proj.weight (shape: torch.Size([768, 3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.2.mlp.c_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.2.ln_2.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.2.ln_2.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.3.attn.in_proj_weight (shape: torch.Size([2304, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.3.attn.in_proj_bias (shape: torch.Size([2304]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.3.attn.out_proj.weight (shape: torch.Size([768, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.3.attn.out_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.3.ln_1.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.3.ln_1.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.3.mlp.c_fc.weight (shape: torch.Size([3072, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.3.mlp.c_fc.bias (shape: torch.Size([3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.3.mlp.c_proj.weight (shape: torch.Size([768, 3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.3.mlp.c_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.3.ln_2.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.3.ln_2.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.4.attn.in_proj_weight (shape: torch.Size([2304, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.4.attn.in_proj_bias (shape: torch.Size([2304]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.4.attn.out_proj.weight (shape: torch.Size([768, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.4.attn.out_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.4.ln_1.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.4.ln_1.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.4.mlp.c_fc.weight (shape: torch.Size([3072, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.4.mlp.c_fc.bias (shape: torch.Size([3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.4.mlp.c_proj.weight (shape: torch.Size([768, 3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.4.mlp.c_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.4.ln_2.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.4.ln_2.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.5.attn.in_proj_weight (shape: torch.Size([2304, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.5.attn.in_proj_bias (shape: torch.Size([2304]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.5.attn.out_proj.weight (shape: torch.Size([768, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.5.attn.out_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.5.ln_1.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.5.ln_1.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.5.mlp.c_fc.weight (shape: torch.Size([3072, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.5.mlp.c_fc.bias (shape: torch.Size([3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.5.mlp.c_proj.weight (shape: torch.Size([768, 3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.5.mlp.c_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.5.ln_2.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.5.ln_2.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.6.attn.in_proj_weight (shape: torch.Size([2304, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.6.attn.in_proj_bias (shape: torch.Size([2304]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.6.attn.out_proj.weight (shape: torch.Size([768, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.6.attn.out_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.6.ln_1.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.6.ln_1.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.6.mlp.c_fc.weight (shape: torch.Size([3072, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.6.mlp.c_fc.bias (shape: torch.Size([3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.6.mlp.c_proj.weight (shape: torch.Size([768, 3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.6.mlp.c_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.6.ln_2.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.6.ln_2.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.7.attn.in_proj_weight (shape: torch.Size([2304, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.7.attn.in_proj_bias (shape: torch.Size([2304]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.7.attn.out_proj.weight (shape: torch.Size([768, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.7.attn.out_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.7.ln_1.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.7.ln_1.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.7.mlp.c_fc.weight (shape: torch.Size([3072, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.7.mlp.c_fc.bias (shape: torch.Size([3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.7.mlp.c_proj.weight (shape: torch.Size([768, 3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.7.mlp.c_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.7.ln_2.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.7.ln_2.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.8.attn.in_proj_weight (shape: torch.Size([2304, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.8.attn.in_proj_bias (shape: torch.Size([2304]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.8.attn.out_proj.weight (shape: torch.Size([768, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.8.attn.out_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.8.ln_1.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.8.ln_1.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.8.mlp.c_fc.weight (shape: torch.Size([3072, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.8.mlp.c_fc.bias (shape: torch.Size([3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.8.mlp.c_proj.weight (shape: torch.Size([768, 3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.8.mlp.c_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.8.ln_2.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.8.ln_2.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.9.attn.in_proj_weight (shape: torch.Size([2304, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.9.attn.in_proj_bias (shape: torch.Size([2304]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.9.attn.out_proj.weight (shape: torch.Size([768, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.9.attn.out_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.9.ln_1.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.9.ln_1.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.9.mlp.c_fc.weight (shape: torch.Size([3072, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.9.mlp.c_fc.bias (shape: torch.Size([3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.9.mlp.c_proj.weight (shape: torch.Size([768, 3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.9.mlp.c_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.9.ln_2.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.9.ln_2.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.10.attn.in_proj_weight (shape: torch.Size([2304, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.10.attn.in_proj_bias (shape: torch.Size([2304]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.10.attn.out_proj.weight (shape: torch.Size([768, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.10.attn.out_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.10.ln_1.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.10.ln_1.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.10.mlp.c_fc.weight (shape: torch.Size([3072, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.10.mlp.c_fc.bias (shape: torch.Size([3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.10.mlp.c_proj.weight (shape: torch.Size([768, 3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.10.mlp.c_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.10.ln_2.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.10.ln_2.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.11.attn.in_proj_weight (shape: torch.Size([2304, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.11.attn.in_proj_bias (shape: torch.Size([2304]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.11.attn.out_proj.weight (shape: torch.Size([768, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.11.attn.out_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.11.ln_1.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.11.ln_1.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.11.mlp.c_fc.weight (shape: torch.Size([3072, 768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.11.mlp.c_fc.bias (shape: torch.Size([3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.11.mlp.c_proj.weight (shape: torch.Size([768, 3072]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.11.mlp.c_proj.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.11.ln_2.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.transformer.resblocks.11.ln_2.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.ln_post.weight (shape: torch.Size([768]))
+        [TRAINABLE] base_model.visual.ln_post.bias (shape: torch.Size([768]))
+        [TRAINABLE] base_model.token_embedding.weight (shape: torch.Size([49408, 512]))
+        [TRAINABLE] base_model.ln_final.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.ln_final.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.0.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.0.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] base_model.transformer.resblocks.0.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.0.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.0.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.0.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.0.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.0.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] base_model.transformer.resblocks.0.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] base_model.transformer.resblocks.0.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.0.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.0.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.1.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.1.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] base_model.transformer.resblocks.1.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.1.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.1.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.1.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.1.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.1.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] base_model.transformer.resblocks.1.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] base_model.transformer.resblocks.1.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.1.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.1.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.2.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.2.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] base_model.transformer.resblocks.2.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.2.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.2.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.2.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.2.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.2.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] base_model.transformer.resblocks.2.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] base_model.transformer.resblocks.2.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.2.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.2.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.3.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.3.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] base_model.transformer.resblocks.3.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.3.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.3.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.3.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.3.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.3.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] base_model.transformer.resblocks.3.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] base_model.transformer.resblocks.3.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.3.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.3.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.4.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.4.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] base_model.transformer.resblocks.4.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.4.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.4.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.4.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.4.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.4.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] base_model.transformer.resblocks.4.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] base_model.transformer.resblocks.4.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.4.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.4.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.5.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.5.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] base_model.transformer.resblocks.5.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.5.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.5.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.5.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.5.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.5.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] base_model.transformer.resblocks.5.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] base_model.transformer.resblocks.5.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.5.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.5.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.6.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.6.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] base_model.transformer.resblocks.6.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.6.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.6.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.6.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.6.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.6.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] base_model.transformer.resblocks.6.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] base_model.transformer.resblocks.6.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.6.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.6.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.7.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.7.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] base_model.transformer.resblocks.7.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.7.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.7.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.7.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.7.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.7.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] base_model.transformer.resblocks.7.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] base_model.transformer.resblocks.7.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.7.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.7.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.8.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.8.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] base_model.transformer.resblocks.8.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.8.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.8.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.8.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.8.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.8.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] base_model.transformer.resblocks.8.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] base_model.transformer.resblocks.8.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.8.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.8.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.9.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.9.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] base_model.transformer.resblocks.9.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.9.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.9.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.9.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.9.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.9.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] base_model.transformer.resblocks.9.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] base_model.transformer.resblocks.9.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.9.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.9.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.10.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.10.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] base_model.transformer.resblocks.10.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.10.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.10.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.10.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.10.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.10.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] base_model.transformer.resblocks.10.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] base_model.transformer.resblocks.10.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.10.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.10.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.11.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.11.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] base_model.transformer.resblocks.11.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.11.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.11.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.11.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.11.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] base_model.transformer.resblocks.11.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] base_model.transformer.resblocks.11.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] base_model.transformer.resblocks.11.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.11.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] base_model.transformer.resblocks.11.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] classifier.weight (shape: torch.Size([3102, 512]))
+        [TRAINABLE] classifier.bias (shape: torch.Size([3102]))
+        [TRAINABLE] cross_attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] cross_attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] cross_attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] cross_attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.0.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.0.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] cross_modal_transformer.resblocks.0.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.0.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.0.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.0.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.0.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.0.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] cross_modal_transformer.resblocks.0.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] cross_modal_transformer.resblocks.0.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.0.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.0.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.1.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.1.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] cross_modal_transformer.resblocks.1.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.1.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.1.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.1.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.1.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.1.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] cross_modal_transformer.resblocks.1.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] cross_modal_transformer.resblocks.1.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.1.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.1.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.2.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.2.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] cross_modal_transformer.resblocks.2.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.2.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.2.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.2.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.2.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.2.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] cross_modal_transformer.resblocks.2.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] cross_modal_transformer.resblocks.2.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.2.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.2.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.3.attn.in_proj_weight (shape: torch.Size([1536, 512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.3.attn.in_proj_bias (shape: torch.Size([1536]))
+        [TRAINABLE] cross_modal_transformer.resblocks.3.attn.out_proj.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.3.attn.out_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.3.ln_1.weight (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.3.ln_1.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.3.mlp.c_fc.weight (shape: torch.Size([2048, 512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.3.mlp.c_fc.bias (shape: torch.Size([2048]))
+        [TRAINABLE] cross_modal_transformer.resblocks.3.mlp.c_proj.weight (shape: torch.Size([512, 2048]))
+        [TRAINABLE] cross_modal_transformer.resblocks.3.mlp.c_proj.bias (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.3.ln_2.weight (shape: torch.Size([512]))
+        [TRAINABLE] cross_modal_transformer.resblocks.3.ln_2.bias (shape: torch.Size([512]))
+        [TRAINABLE] ln_pre_t.weight (shape: torch.Size([512]))
+        [TRAINABLE] ln_pre_t.bias (shape: torch.Size([512]))
+        [TRAINABLE] ln_pre_i.weight (shape: torch.Size([512]))
+        [TRAINABLE] ln_pre_i.bias (shape: torch.Size([512]))
+        [TRAINABLE] ln_post.weight (shape: torch.Size([512]))
+        [TRAINABLE] ln_post.bias (shape: torch.Size([512]))
+        [TRAINABLE] mlm_head.dense.weight (shape: torch.Size([512, 512]))
+        [TRAINABLE] mlm_head.dense.bias (shape: torch.Size([512]))
+        [TRAINABLE] mlm_head.ln.weight (shape: torch.Size([512]))
+        [TRAINABLE] mlm_head.ln.bias (shape: torch.Size([512]))
+        [TRAINABLE] mlm_head.fc.weight (shape: torch.Size([49408, 512]))
+        [TRAINABLE] mlm_head.fc.bias (shape: torch.Size([49408]))
+     Total Params Sum:  190482718
+### Zero-Shot Score: 
+/usr/local/lib/python3.13/dist-packages/torch/utils/data/dataloader.py:432: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+/kaggle/temp/uatta/uatta/IRRA_UATTA/utils/metrics.py:53: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+/kaggle/temp/uatta/uatta/IRRA_UATTA/utils/metrics.py:64: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
++-------+--------+--------+--------+--------+-------+
+| epoch |   R1   |   R5   |  R10   |  mAP   |  mINP |
++-------+--------+--------+--------+--------+-------+
+|  -999 | 37.268 | 55.542 | 63.553 | 20.139 | 2.214 |
++-------+--------+--------+--------+--------+-------+
+### TTA:
+### Compute Cos Similarity Uncertainty
+     preprocess_tta_coefficients  start
+     sample selection ...
+     number of sample after sample_selection: 5581
+     uncertainty ...
+     pos/neg sampling ...
+      number of sample after pos/neg sampling: torch.Size([19848, 8])
+     preprocess_tta_coefficients  end
+### Creating TTA dataset
+     tta_dataset: 5581
+### Creating tta dataloader
+     tta_loader: 348
+### Configure adapted weights
+     TTA Dropout Modules: 
+ []
+     TTA Require Gradient Params: 
+ [('base_model.ln_final.weight', torch.Size([512])), ('base_model.ln_final.bias', torch.Size([512])), ('base_model.transformer.resblocks.1.ln_1.weight', torch.Size([512])), ('base_model.transformer.resblocks.1.ln_1.bias', torch.Size([512])), ('base_model.transformer.resblocks.1.ln_2.weight', torch.Size([512])), ('base_model.transformer.resblocks.1.ln_2.bias', torch.Size([512])), ('base_model.transformer.resblocks.2.ln_1.weight', torch.Size([512])), ('base_model.transformer.resblocks.2.ln_1.bias', torch.Size([512])), ('base_model.transformer.resblocks.2.ln_2.weight', torch.Size([512])), ('base_model.transformer.resblocks.2.ln_2.bias', torch.Size([512])), ('base_model.transformer.resblocks.3.ln_1.weight', torch.Size([512])), ('base_model.transformer.resblocks.3.ln_1.bias', torch.Size([512])), ('base_model.transformer.resblocks.3.ln_2.weight', torch.Size([512])), ('base_model.transformer.resblocks.3.ln_2.bias', torch.Size([512])), ('base_model.transformer.resblocks.4.ln_1.weight', torch.Size([512])), ('base_model.transformer.resblocks.4.ln_1.bias', torch.Size([512])), ('base_model.transformer.resblocks.4.ln_2.weight', torch.Size([512])), ('base_model.transformer.resblocks.4.ln_2.bias', torch.Size([512])), ('base_model.transformer.resblocks.5.ln_1.weight', torch.Size([512])), ('base_model.transformer.resblocks.5.ln_1.bias', torch.Size([512])), ('base_model.transformer.resblocks.5.ln_2.weight', torch.Size([512])), ('base_model.transformer.resblocks.5.ln_2.bias', torch.Size([512])), ('base_model.transformer.resblocks.7.ln_1.weight', torch.Size([512])), ('base_model.transformer.resblocks.7.ln_1.bias', torch.Size([512])), ('base_model.transformer.resblocks.7.ln_2.weight', torch.Size([512])), ('base_model.transformer.resblocks.7.ln_2.bias', torch.Size([512])), ('base_model.transformer.resblocks.8.ln_1.weight', torch.Size([512])), ('base_model.transformer.resblocks.8.ln_1.bias', torch.Size([512])), ('base_model.transformer.resblocks.8.ln_2.weight', torch.Size([512])), ('base_model.transformer.resblocks.8.ln_2.bias', torch.Size([512])), ('base_model.transformer.resblocks.9.ln_1.weight', torch.Size([512])), ('base_model.transformer.resblocks.9.ln_1.bias', torch.Size([512])), ('base_model.transformer.resblocks.9.ln_2.weight', torch.Size([512])), ('base_model.transformer.resblocks.9.ln_2.bias', torch.Size([512])), ('base_model.transformer.resblocks.10.ln_1.weight', torch.Size([512])), ('base_model.transformer.resblocks.10.ln_1.bias', torch.Size([512])), ('base_model.transformer.resblocks.10.ln_2.weight', torch.Size([512])), ('base_model.transformer.resblocks.10.ln_2.bias', torch.Size([512])), ('base_model.transformer.resblocks.11.ln_1.weight', torch.Size([512])), ('base_model.transformer.resblocks.11.ln_1.bias', torch.Size([512])), ('base_model.transformer.resblocks.11.ln_2.weight', torch.Size([512])), ('base_model.transformer.resblocks.11.ln_2.bias', torch.Size([512]))]
+     TTA Dropout Modules Number: 
+ 0
+     TTA Require Gradient Params Sum: 
+ 21504
+Using 5.0 times learning rate for random init module 
+/kaggle/temp/uatta/uatta/IRRA_UATTA/tta.py:271: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()  # bf16
+### Start Test Time Adaptation : num_epoch = 10
+     Epoch[0] Iteration[10/348], entropy: 0.2874, uncertainty: 3.5155, loss: 0.1012, lr: 0.00e+00
+     Epoch[0] Iteration[20/348], entropy: 0.3114, uncertainty: 3.4563, loss: 0.1246, lr: 0.00e+00
+     Epoch[0] Iteration[30/348], entropy: 0.4776, uncertainty: 2.4050, loss: 0.2963, lr: 0.00e+00
+     Epoch[0] Iteration[40/348], entropy: 0.4105, uncertainty: 3.0102, loss: 0.1675, lr: 0.00e+00
+     Epoch[0] Iteration[50/348], entropy: 0.3551, uncertainty: 3.0639, loss: 0.1338, lr: 0.00e+00
+     Epoch[0] Iteration[60/348], entropy: 0.2245, uncertainty: 4.3120, loss: 0.0539, lr: 0.00e+00
+     Epoch[0] Iteration[70/348], entropy: 0.5287, uncertainty: 3.2696, loss: 0.2569, lr: 0.00e+00
+     Epoch[0] Iteration[80/348], entropy: 0.4745, uncertainty: 3.6650, loss: 0.1083, lr: 0.00e+00
+     Epoch[0] Iteration[90/348], entropy: 0.3237, uncertainty: 3.3070, loss: 0.1872, lr: 0.00e+00
+     Epoch[0] Iteration[100/348], entropy: 0.2743, uncertainty: 3.0370, loss: 0.1361, lr: 0.00e+00
+     Epoch[0] Iteration[110/348], entropy: 0.3153, uncertainty: 3.6148, loss: 0.1113, lr: 0.00e+00
+     Epoch[0] Iteration[120/348], entropy: 0.3165, uncertainty: 4.1170, loss: 0.1362, lr: 0.00e+00
+     Epoch[0] Iteration[130/348], entropy: 0.4453, uncertainty: 3.0494, loss: 0.1690, lr: 0.00e+00
+     Epoch[0] Iteration[140/348], entropy: 0.2471, uncertainty: 3.2298, loss: 0.1089, lr: 0.00e+00
+     Epoch[0] Iteration[150/348], entropy: 0.3497, uncertainty: 3.1744, loss: 0.1369, lr: 0.00e+00
+     Epoch[0] Iteration[160/348], entropy: 0.2937, uncertainty: 2.9744, loss: 0.1114, lr: 0.00e+00
+     Epoch[0] Iteration[170/348], entropy: 0.3303, uncertainty: 3.7433, loss: 0.1377, lr: 0.00e+00
+     Epoch[0] Iteration[180/348], entropy: 0.1867, uncertainty: 3.2737, loss: 0.0637, lr: 0.00e+00
+     Epoch[0] Iteration[190/348], entropy: 0.2808, uncertainty: 3.8192, loss: 0.0931, lr: 0.00e+00
+     Epoch[0] Iteration[200/348], entropy: 0.4349, uncertainty: 2.8211, loss: 0.2085, lr: 0.00e+00
+     Epoch[0] Iteration[210/348], entropy: 0.2924, uncertainty: 3.5880, loss: 0.1329, lr: 0.00e+00
+     Epoch[0] Iteration[220/348], entropy: 0.2474, uncertainty: 2.9554, loss: 0.0983, lr: 0.00e+00
+     Epoch[0] Iteration[230/348], entropy: 0.3026, uncertainty: 2.9895, loss: 0.1742, lr: 0.00e+00
+     Epoch[0] Iteration[240/348], entropy: 0.2535, uncertainty: 3.7936, loss: 0.1009, lr: 0.00e+00
+     Epoch[0] Iteration[250/348], entropy: 0.2884, uncertainty: 2.8127, loss: 0.1057, lr: 0.00e+00
+     Epoch[0] Iteration[260/348], entropy: 0.3078, uncertainty: 2.6612, loss: 0.1378, lr: 0.00e+00
+     Epoch[0] Iteration[270/348], entropy: 0.3008, uncertainty: 3.0911, loss: 0.0900, lr: 0.00e+00
+     Epoch[0] Iteration[280/348], entropy: 0.3440, uncertainty: 3.5774, loss: 0.1138, lr: 0.00e+00
+     Epoch[0] Iteration[290/348], entropy: 0.4475, uncertainty: 3.3641, loss: 0.1751, lr: 0.00e+00
+     Epoch[0] Iteration[300/348], entropy: 0.3862, uncertainty: 3.7023, loss: 0.1441, lr: 0.00e+00
+     Epoch[0] Iteration[310/348], entropy: 0.3078, uncertainty: 3.4769, loss: 0.0975, lr: 0.00e+00
+     Epoch[0] Iteration[320/348], entropy: 0.4556, uncertainty: 3.9707, loss: 0.1424, lr: 0.00e+00
+     Epoch[0] Iteration[330/348], entropy: 0.2769, uncertainty: 3.4973, loss: 0.0908, lr: 0.00e+00
+     Epoch[0] Iteration[340/348], entropy: 0.2291, uncertainty: 3.3550, loss: 0.0922, lr: 0.00e+00
+     Averaged stats: entropy_avg: 0.3326, uncertainty_avg: 3.3439, loss_avg: 0.1335, lr_avg: 0.00e+00
+     itm tta time 0:03:32
+(5568, 8)
+### TTA Eval Score: 
++-------+--------+--------+--------+--------+-------+
+| epoch |   R1   |   R5   |  R10   |  mAP   |  mINP |
++-------+--------+--------+--------+--------+-------+
+|  -999 | 37.268 | 55.542 | 63.553 | 20.139 | 2.214 |
+|   0   | 39.530 | 57.059 | 65.130 | 21.134 | 2.227 |
++-------+--------+--------+--------+--------+-------+
+     logs:  {'epo': 0, 'R1': np.float32(39.53), 'R5': np.float32(57.059), 'R10': np.float32(65.13), 'mAP': np.float32(21.134), 'mINP': np.float32(2.227), 'entropy': 0.3325866145246169, 'uncertainty': 3.34394170256222, 'loss': 0.1334772423348006, 'lr': 0.0}
+     Epoch[1] Iteration[10/348], entropy: 0.2999, uncertainty: 3.3379, loss: 0.1326, lr: 1.73e-04
+     Epoch[1] Iteration[20/348], entropy: 0.2988, uncertainty: 3.1996, loss: 0.1340, lr: 1.73e-04
+     Epoch[1] Iteration[30/348], entropy: 0.3738, uncertainty: 3.2034, loss: 0.1889, lr: 1.73e-04
+     Epoch[1] Iteration[40/348], entropy: 0.2261, uncertainty: 3.6031, loss: 0.0816, lr: 1.73e-04
+     Epoch[1] Iteration[50/348], entropy: 0.3984, uncertainty: 2.6039, loss: 0.1591, lr: 1.73e-04
+     Epoch[1] Iteration[60/348], entropy: 0.3382, uncertainty: 3.1492, loss: 0.1518, lr: 1.73e-04
+     Epoch[1] Iteration[70/348], entropy: 0.2147, uncertainty: 2.9194, loss: 0.0980, lr: 1.73e-04
+     Epoch[1] Iteration[80/348], entropy: 0.5360, uncertainty: 3.3597, loss: 0.1487, lr: 1.73e-04
+     Epoch[1] Iteration[90/348], entropy: 0.4075, uncertainty: 3.2337, loss: 0.1604, lr: 1.73e-04
+     Epoch[1] Iteration[100/348], entropy: 0.3637, uncertainty: 3.4467, loss: 0.1539, lr: 1.73e-04
+     Epoch[1] Iteration[110/348], entropy: 0.3616, uncertainty: 3.1594, loss: 0.1954, lr: 1.73e-04
+     Epoch[1] Iteration[120/348], entropy: 0.5449, uncertainty: 2.6253, loss: 0.2930, lr: 1.73e-04
+     Epoch[1] Iteration[130/348], entropy: 0.6043, uncertainty: 3.1202, loss: 0.2342, lr: 1.73e-04
+     Epoch[1] Iteration[140/348], entropy: 0.2792, uncertainty: 3.0108, loss: 0.1185, lr: 1.73e-04
+     Epoch[1] Iteration[150/348], entropy: 0.3146, uncertainty: 2.7376, loss: 0.1251, lr: 1.73e-04
+     Epoch[1] Iteration[160/348], entropy: 0.1487, uncertainty: 3.4002, loss: 0.0480, lr: 1.73e-04
+     Epoch[1] Iteration[170/348], entropy: 0.3829, uncertainty: 2.6612, loss: 0.2186, lr: 1.73e-04
+     Epoch[1] Iteration[180/348], entropy: 0.2278, uncertainty: 3.3060, loss: 0.0941, lr: 1.73e-04
+     Epoch[1] Iteration[190/348], entropy: 0.2071, uncertainty: 3.3218, loss: 0.0662, lr: 1.73e-04
+     Epoch[1] Iteration[200/348], entropy: 0.1582, uncertainty: 3.1665, loss: 0.0622, lr: 1.73e-04
+     Epoch[1] Iteration[210/348], entropy: 0.3293, uncertainty: 3.3345, loss: 0.1054, lr: 1.73e-04
+     Epoch[1] Iteration[220/348], entropy: 0.3358, uncertainty: 2.9504, loss: 0.1619, lr: 1.73e-04
+     Epoch[1] Iteration[230/348], entropy: 0.3364, uncertainty: 4.0106, loss: 0.1376, lr: 1.73e-04
+     Epoch[1] Iteration[240/348], entropy: 0.3808, uncertainty: 3.6773, loss: 0.1536, lr: 1.73e-04
+     Epoch[1] Iteration[250/348], entropy: 0.4186, uncertainty: 3.4558, loss: 0.2003, lr: 1.73e-04
+     Epoch[1] Iteration[260/348], entropy: 0.3408, uncertainty: 3.6456, loss: 0.1193, lr: 1.73e-04
+     Epoch[1] Iteration[270/348], entropy: 0.2277, uncertainty: 3.1841, loss: 0.0684, lr: 1.73e-04
+     Epoch[1] Iteration[280/348], entropy: 0.2322, uncertainty: 3.7250, loss: 0.1045, lr: 1.73e-04
+     Epoch[1] Iteration[290/348], entropy: 0.2206, uncertainty: 2.7391, loss: 0.1388, lr: 1.73e-04
+     Epoch[1] Iteration[300/348], entropy: 0.3143, uncertainty: 3.4674, loss: 0.1203, lr: 1.73e-04
+     Epoch[1] Iteration[310/348], entropy: 0.3804, uncertainty: 2.7958, loss: 0.1438, lr: 1.73e-04
+     Epoch[1] Iteration[320/348], entropy: 0.4457, uncertainty: 3.4360, loss: 0.1617, lr: 1.73e-04
+     Epoch[1] Iteration[330/348], entropy: 0.3692, uncertainty: 2.8094, loss: 0.1442, lr: 1.73e-04
+     Epoch[1] Iteration[340/348], entropy: 0.2189, uncertainty: 3.9372, loss: 0.0718, lr: 1.73e-04
+     Averaged stats: entropy_avg: 0.3305, uncertainty_avg: 3.2275, loss_avg: 0.1381, lr_avg: 1.73e-04
+     itm tta time 0:03:32
+(5568, 8)
+### TTA Eval Score: 
++-------+--------+--------+--------+--------+-------+
+| epoch |   R1   |   R5   |  R10   |  mAP   |  mINP |
++-------+--------+--------+--------+--------+-------+
+|  -999 | 37.268 | 55.542 | 63.553 | 20.139 | 2.214 |
+|   0   | 39.530 | 57.059 | 65.130 | 21.134 | 2.227 |
+|   1   | 39.954 | 57.406 | 65.367 | 21.269 | 2.213 |
++-------+--------+--------+--------+--------+-------+
+     logs:  {'epo': 1, 'R1': np.float32(39.954), 'R5': np.float32(57.406), 'R10': np.float32(65.367), 'mAP': np.float32(21.269), 'mINP': np.float32(2.213), 'entropy': 0.3305079590748338, 'uncertainty': 3.22746406583225, 'loss': 0.1381176324451671, 'lr': 0.00017274575140627143}
+     Epoch[2] Iteration[10/348], entropy: 0.2317, uncertainty: 3.9980, loss: 0.0557, lr: 4.52e-04
+     Epoch[2] Iteration[20/348], entropy: 0.2735, uncertainty: 3.1862, loss: 0.1195, lr: 4.52e-04
+     Epoch[2] Iteration[30/348], entropy: 0.3790, uncertainty: 3.7853, loss: 0.1352, lr: 4.52e-04
+     Epoch[2] Iteration[40/348], entropy: 0.2210, uncertainty: 2.8268, loss: 0.0829, lr: 4.52e-04
+     Epoch[2] Iteration[50/348], entropy: 0.2748, uncertainty: 3.5510, loss: 0.1026, lr: 4.52e-04
+     Epoch[2] Iteration[60/348], entropy: 0.1740, uncertainty: 2.7925, loss: 0.0613, lr: 4.52e-04
+     Epoch[2] Iteration[70/348], entropy: 0.4144, uncertainty: 3.1476, loss: 0.1628, lr: 4.52e-04
+     Epoch[2] Iteration[80/348], entropy: 0.2836, uncertainty: 3.4101, loss: 0.1537, lr: 4.52e-04
+     Epoch[2] Iteration[90/348], entropy: 0.3242, uncertainty: 3.3995, loss: 0.0980, lr: 4.52e-04
+     Epoch[2] Iteration[100/348], entropy: 0.3756, uncertainty: 3.5807, loss: 0.1473, lr: 4.52e-04
+     Epoch[2] Iteration[110/348], entropy: 0.2296, uncertainty: 3.2798, loss: 0.0958, lr: 4.52e-04
+     Epoch[2] Iteration[120/348], entropy: 0.1509, uncertainty: 2.9076, loss: 0.0595, lr: 4.52e-04
+     Epoch[2] Iteration[130/348], entropy: 0.2209, uncertainty: 3.9618, loss: 0.0795, lr: 4.52e-04
+     Epoch[2] Iteration[140/348], entropy: 0.2523, uncertainty: 2.9136, loss: 0.1024, lr: 4.52e-04
+     Epoch[2] Iteration[150/348], entropy: 0.3206, uncertainty: 2.9120, loss: 0.1706, lr: 4.52e-04
+     Epoch[2] Iteration[160/348], entropy: 0.4353, uncertainty: 3.5683, loss: 0.1351, lr: 4.52e-04
+     Epoch[2] Iteration[170/348], entropy: 0.1045, uncertainty: 3.7320, loss: 0.0378, lr: 4.52e-04
+     Epoch[2] Iteration[180/348], entropy: 0.2469, uncertainty: 3.6400, loss: 0.0958, lr: 4.52e-04
+     Epoch[2] Iteration[190/348], entropy: 0.1842, uncertainty: 2.8527, loss: 0.0961, lr: 4.52e-04
+     Epoch[2] Iteration[200/348], entropy: 0.3317, uncertainty: 2.7244, loss: 0.1324, lr: 4.52e-04
+     Epoch[2] Iteration[210/348], entropy: 0.3757, uncertainty: 2.8799, loss: 0.1759, lr: 4.52e-04
+     Epoch[2] Iteration[220/348], entropy: 0.3536, uncertainty: 3.7196, loss: 0.1523, lr: 4.52e-04
+     Epoch[2] Iteration[230/348], entropy: 0.4822, uncertainty: 3.1530, loss: 0.1915, lr: 4.52e-04
+     Epoch[2] Iteration[240/348], entropy: 0.3056, uncertainty: 3.5838, loss: 0.1180, lr: 4.52e-04
+     Epoch[2] Iteration[250/348], entropy: 0.2458, uncertainty: 3.2327, loss: 0.1274, lr: 4.52e-04
+     Epoch[2] Iteration[260/348], entropy: 0.3350, uncertainty: 3.8634, loss: 0.1527, lr: 4.52e-04
+     Epoch[2] Iteration[270/348], entropy: 0.2141, uncertainty: 2.3387, loss: 0.0883, lr: 4.52e-04
+     Epoch[2] Iteration[280/348], entropy: 0.1983, uncertainty: 2.8261, loss: 0.0663, lr: 4.52e-04
+     Epoch[2] Iteration[290/348], entropy: 0.3213, uncertainty: 3.8072, loss: 0.0829, lr: 4.52e-04
+     Epoch[2] Iteration[300/348], entropy: 0.3169, uncertainty: 2.9302, loss: 0.1678, lr: 4.52e-04
+     Epoch[2] Iteration[310/348], entropy: 0.4270, uncertainty: 2.5777, loss: 0.2346, lr: 4.52e-04
+     Epoch[2] Iteration[320/348], entropy: 0.2745, uncertainty: 4.1448, loss: 0.0914, lr: 4.52e-04
+     Epoch[2] Iteration[330/348], entropy: 0.3684, uncertainty: 2.9705, loss: 0.1408, lr: 4.52e-04
+     Epoch[2] Iteration[340/348], entropy: 0.3202, uncertainty: 3.3684, loss: 0.1124, lr: 4.52e-04
+     Averaged stats: entropy_avg: 0.2931, uncertainty_avg: 3.2814, loss_avg: 0.1184, lr_avg: 4.52e-04
+     itm tta time 0:03:32
+(5568, 8)
+### TTA Eval Score: 
++-------+--------+--------+--------+--------+-------+
+| epoch |   R1   |   R5   |  R10   |  mAP   |  mINP |
++-------+--------+--------+--------+--------+-------+
+|  -999 | 37.268 | 55.542 | 63.553 | 20.139 | 2.214 |
+|   0   | 39.530 | 57.059 | 65.130 | 21.134 | 2.227 |
+|   1   | 39.954 | 57.406 | 65.367 | 21.269 | 2.213 |
+|   2   | 40.261 | 57.709 | 65.704 | 21.424 | 2.227 |
++-------+--------+--------+--------+--------+-------+
+     logs:  {'epo': 2, 'R1': np.float32(40.261), 'R5': np.float32(57.709), 'R10': np.float32(65.704), 'mAP': np.float32(21.424), 'mINP': np.float32(2.227), 'entropy': 0.29314251704251065, 'uncertainty': 3.2813528776168823, 'loss': 0.11841632338131175, 'lr': 0.00045225424859374555}
+     Epoch[3] Iteration[10/348], entropy: 0.2719, uncertainty: 3.0814, loss: 0.1008, lr: 4.52e-04
+     Epoch[3] Iteration[20/348], entropy: 0.2134, uncertainty: 2.9889, loss: 0.1001, lr: 4.52e-04
+     Epoch[3] Iteration[30/348], entropy: 0.2764, uncertainty: 3.8363, loss: 0.0792, lr: 4.52e-04
+     Epoch[3] Iteration[40/348], entropy: 0.4489, uncertainty: 2.9214, loss: 0.1496, lr: 4.52e-04
+     Epoch[3] Iteration[50/348], entropy: 0.2864, uncertainty: 3.1478, loss: 0.1150, lr: 4.52e-04
+     Epoch[3] Iteration[60/348], entropy: 0.3385, uncertainty: 3.2949, loss: 0.1075, lr: 4.52e-04
+     Epoch[3] Iteration[70/348], entropy: 0.4745, uncertainty: 3.0818, loss: 0.2166, lr: 4.52e-04
+     Epoch[3] Iteration[80/348], entropy: 0.2201, uncertainty: 3.0062, loss: 0.0780, lr: 4.52e-04
+     Epoch[3] Iteration[90/348], entropy: 0.3192, uncertainty: 3.5249, loss: 0.1397, lr: 4.52e-04
+     Epoch[3] Iteration[100/348], entropy: 0.3368, uncertainty: 3.0741, loss: 0.1161, lr: 4.52e-04
+     Epoch[3] Iteration[110/348], entropy: 0.3074, uncertainty: 3.7849, loss: 0.0968, lr: 4.52e-04
+     Epoch[3] Iteration[120/348], entropy: 0.3319, uncertainty: 2.7211, loss: 0.1710, lr: 4.52e-04
+     Epoch[3] Iteration[130/348], entropy: 0.3846, uncertainty: 2.7186, loss: 0.1608, lr: 4.52e-04
+     Epoch[3] Iteration[140/348], entropy: 0.4181, uncertainty: 2.9556, loss: 0.1637, lr: 4.52e-04
+     Epoch[3] Iteration[150/348], entropy: 0.1904, uncertainty: 3.6240, loss: 0.0596, lr: 4.52e-04
+     Epoch[3] Iteration[160/348], entropy: 0.2388, uncertainty: 3.2049, loss: 0.0949, lr: 4.52e-04
+     Epoch[3] Iteration[170/348], entropy: 0.3030, uncertainty: 3.0987, loss: 0.1793, lr: 4.52e-04
+     Epoch[3] Iteration[180/348], entropy: 0.2440, uncertainty: 3.5304, loss: 0.0949, lr: 4.52e-04
+     Epoch[3] Iteration[190/348], entropy: 0.4697, uncertainty: 3.5895, loss: 0.1427, lr: 4.52e-04
+     Epoch[3] Iteration[200/348], entropy: 0.2688, uncertainty: 2.5266, loss: 0.1051, lr: 4.52e-04
+     Epoch[3] Iteration[210/348], entropy: 0.3988, uncertainty: 2.6412, loss: 0.1750, lr: 4.52e-04
+     Epoch[3] Iteration[220/348], entropy: 0.2075, uncertainty: 3.1570, loss: 0.0933, lr: 4.52e-04
+     Epoch[3] Iteration[230/348], entropy: 0.3050, uncertainty: 3.4996, loss: 0.1393, lr: 4.52e-04
+     Epoch[3] Iteration[240/348], entropy: 0.3178, uncertainty: 2.5822, loss: 0.1206, lr: 4.52e-04
+     Epoch[3] Iteration[250/348], entropy: 0.2790, uncertainty: 3.0961, loss: 0.1285, lr: 4.52e-04
+     Epoch[3] Iteration[260/348], entropy: 0.2670, uncertainty: 2.7283, loss: 0.1170, lr: 4.52e-04
+     Epoch[3] Iteration[270/348], entropy: 0.3006, uncertainty: 4.1072, loss: 0.0790, lr: 4.52e-04
+     Epoch[3] Iteration[280/348], entropy: 0.2338, uncertainty: 3.8981, loss: 0.0591, lr: 4.52e-04
+     Epoch[3] Iteration[290/348], entropy: 0.3380, uncertainty: 3.3995, loss: 0.0761, lr: 4.52e-04
+     Epoch[3] Iteration[300/348], entropy: 0.2194, uncertainty: 3.6051, loss: 0.0857, lr: 4.52e-04
+     Epoch[3] Iteration[310/348], entropy: 0.1700, uncertainty: 3.2269, loss: 0.0781, lr: 4.52e-04
+     Epoch[3] Iteration[320/348], entropy: 0.3286, uncertainty: 2.9718, loss: 0.1046, lr: 4.52e-04
+     Epoch[3] Iteration[330/348], entropy: 0.3421, uncertainty: 3.6932, loss: 0.1180, lr: 4.52e-04
+     Epoch[3] Iteration[340/348], entropy: 0.1975, uncertainty: 3.1648, loss: 0.1063, lr: 4.52e-04
+     Averaged stats: entropy_avg: 0.3014, uncertainty_avg: 3.2201, loss_avg: 0.1162, lr_avg: 4.52e-04
+     itm tta time 0:03:32
+     Epoch[4] Iteration[10/348], entropy: 0.2526, uncertainty: 3.3242, loss: 0.1063, lr: 1.73e-04
+     Epoch[4] Iteration[20/348], entropy: 0.3047, uncertainty: 4.0272, loss: 0.0712, lr: 1.73e-04
+     Epoch[4] Iteration[30/348], entropy: 0.3148, uncertainty: 2.8362, loss: 0.1201, lr: 1.73e-04
+     Epoch[4] Iteration[40/348], entropy: 0.2981, uncertainty: 4.0175, loss: 0.0891, lr: 1.73e-04
+     Epoch[4] Iteration[50/348], entropy: 0.2720, uncertainty: 3.4926, loss: 0.1414, lr: 1.73e-04
+     Epoch[4] Iteration[60/348], entropy: 0.4247, uncertainty: 3.7291, loss: 0.1533, lr: 1.73e-04
+     Epoch[4] Iteration[70/348], entropy: 0.3299, uncertainty: 2.6420, loss: 0.1470, lr: 1.73e-04
+     Epoch[4] Iteration[80/348], entropy: 0.3084, uncertainty: 2.6491, loss: 0.1574, lr: 1.73e-04
+     Epoch[4] Iteration[90/348], entropy: 0.2178, uncertainty: 3.2116, loss: 0.1007, lr: 1.73e-04
+     Epoch[4] Iteration[100/348], entropy: 0.3645, uncertainty: 3.0685, loss: 0.1203, lr: 1.73e-04
+     Epoch[4] Iteration[110/348], entropy: 0.3907, uncertainty: 3.3113, loss: 0.2112, lr: 1.73e-04
+     Epoch[4] Iteration[120/348], entropy: 0.2272, uncertainty: 3.6389, loss: 0.1271, lr: 1.73e-04
+     Epoch[4] Iteration[130/348], entropy: 0.3410, uncertainty: 2.7917, loss: 0.1182, lr: 1.73e-04
+     Epoch[4] Iteration[140/348], entropy: 0.3548, uncertainty: 3.0375, loss: 0.1540, lr: 1.73e-04
+     Epoch[4] Iteration[150/348], entropy: 0.3009, uncertainty: 3.6923, loss: 0.1377, lr: 1.73e-04
+     Epoch[4] Iteration[160/348], entropy: 0.3427, uncertainty: 3.5268, loss: 0.1135, lr: 1.73e-04
+     Epoch[4] Iteration[170/348], entropy: 0.1657, uncertainty: 3.8185, loss: 0.0458, lr: 1.73e-04
+     Epoch[4] Iteration[180/348], entropy: 0.2753, uncertainty: 3.8785, loss: 0.1017, lr: 1.73e-04
+     Epoch[4] Iteration[190/348], entropy: 0.1193, uncertainty: 3.1304, loss: 0.0459, lr: 1.73e-04
+     Epoch[4] Iteration[200/348], entropy: 0.2388, uncertainty: 3.3505, loss: 0.0975, lr: 1.73e-04
+     Epoch[4] Iteration[210/348], entropy: 0.2407, uncertainty: 3.2998, loss: 0.1447, lr: 1.73e-04
+     Epoch[4] Iteration[220/348], entropy: 0.2277, uncertainty: 3.7483, loss: 0.0782, lr: 1.73e-04
+     Epoch[4] Iteration[230/348], entropy: 0.2151, uncertainty: 3.3438, loss: 0.0890, lr: 1.73e-04
+     Epoch[4] Iteration[240/348], entropy: 0.4131, uncertainty: 3.4694, loss: 0.1800, lr: 1.73e-04
+     Epoch[4] Iteration[250/348], entropy: 0.2828, uncertainty: 3.3236, loss: 0.1034, lr: 1.73e-04
+     Epoch[4] Iteration[260/348], entropy: 0.3071, uncertainty: 4.2642, loss: 0.0923, lr: 1.73e-04
+     Epoch[4] Iteration[270/348], entropy: 0.2428, uncertainty: 3.2908, loss: 0.0940, lr: 1.73e-04
+     Epoch[4] Iteration[280/348], entropy: 0.2407, uncertainty: 3.2244, loss: 0.0889, lr: 1.73e-04
+     Epoch[4] Iteration[290/348], entropy: 0.3025, uncertainty: 2.9257, loss: 0.1472, lr: 1.73e-04
+     Epoch[4] Iteration[300/348], entropy: 0.3719, uncertainty: 3.4051, loss: 0.1935, lr: 1.73e-04
+     Epoch[4] Iteration[310/348], entropy: 0.3463, uncertainty: 2.5369, loss: 0.1739, lr: 1.73e-04
+     Epoch[4] Iteration[320/348], entropy: 0.4366, uncertainty: 3.3763, loss: 0.1516, lr: 1.73e-04
+     Epoch[4] Iteration[330/348], entropy: 0.1367, uncertainty: 4.1314, loss: 0.0338, lr: 1.73e-04
+     Epoch[4] Iteration[340/348], entropy: 0.2434, uncertainty: 3.0096, loss: 0.0906, lr: 1.73e-04
+     Averaged stats: entropy_avg: 0.2897, uncertainty_avg: 3.3684, loss_avg: 0.1182, lr_avg: 1.73e-04
+     itm tta time 0:03:31
+(5568, 8)
+### TTA Eval Score: 
++-------+--------+--------+--------+--------+-------+
+| epoch |   R1   |   R5   |  R10   |  mAP   |  mINP |
++-------+--------+--------+--------+--------+-------+
+|  -999 | 37.268 | 55.542 | 63.553 | 20.139 | 2.214 |
+|   0   | 39.530 | 57.059 | 65.130 | 21.134 | 2.227 |
+|   1   | 39.954 | 57.406 | 65.367 | 21.269 | 2.213 |
+|   2   | 40.261 | 57.709 | 65.704 | 21.424 | 2.227 |
+|   4   | 40.281 | 57.799 | 65.770 | 21.497 | 2.261 |
++-------+--------+--------+--------+--------+-------+
+     logs:  {'epo': 4, 'R1': np.float32(40.281), 'R5': np.float32(57.799), 'R10': np.float32(65.77), 'mAP': np.float32(21.497), 'mINP': np.float32(2.261), 'entropy': 0.2897367933217217, 'uncertainty': 3.368350723210503, 'loss': 0.11824755622621845, 'lr': 0.00017274575140623625}
+     Epoch[5] Iteration[10/348], entropy: 0.1746, uncertainty: 3.2155, loss: 0.0800, lr: 0.00e+00
+     Epoch[5] Iteration[20/348], entropy: 0.3396, uncertainty: 3.4652, loss: 0.1255, lr: 0.00e+00
+     Epoch[5] Iteration[30/348], entropy: 0.2765, uncertainty: 2.8471, loss: 0.1507, lr: 0.00e+00
+     Epoch[5] Iteration[40/348], entropy: 0.3141, uncertainty: 3.5281, loss: 0.1140, lr: 0.00e+00
+     Epoch[5] Iteration[50/348], entropy: 0.3455, uncertainty: 3.5193, loss: 0.1153, lr: 0.00e+00
+     Epoch[5] Iteration[60/348], entropy: 0.2941, uncertainty: 3.1348, loss: 0.1176, lr: 0.00e+00
+     Epoch[5] Iteration[70/348], entropy: 0.3762, uncertainty: 3.6025, loss: 0.1328, lr: 0.00e+00
+     Epoch[5] Iteration[80/348], entropy: 0.4118, uncertainty: 3.2789, loss: 0.2133, lr: 0.00e+00
+     Epoch[5] Iteration[90/348], entropy: 0.2963, uncertainty: 2.6082, loss: 0.1861, lr: 0.00e+00
+     Epoch[5] Iteration[100/348], entropy: 0.2024, uncertainty: 3.1905, loss: 0.0741, lr: 0.00e+00
+     Epoch[5] Iteration[110/348], entropy: 0.2180, uncertainty: 3.1649, loss: 0.0879, lr: 0.00e+00
+     Epoch[5] Iteration[120/348], entropy: 0.3836, uncertainty: 2.9292, loss: 0.1511, lr: 0.00e+00
+     Epoch[5] Iteration[130/348], entropy: 0.3735, uncertainty: 3.1522, loss: 0.1593, lr: 0.00e+00
+     Epoch[5] Iteration[140/348], entropy: 0.2168, uncertainty: 3.9648, loss: 0.0676, lr: 0.00e+00
+     Epoch[5] Iteration[150/348], entropy: 0.1253, uncertainty: 2.5466, loss: 0.0586, lr: 0.00e+00
+     Epoch[5] Iteration[160/348], entropy: 0.2776, uncertainty: 3.5084, loss: 0.0816, lr: 0.00e+00
+     Epoch[5] Iteration[170/348], entropy: 0.3899, uncertainty: 3.4124, loss: 0.1336, lr: 0.00e+00
+     Epoch[5] Iteration[180/348], entropy: 0.3789, uncertainty: 3.2487, loss: 0.1311, lr: 0.00e+00
+     Epoch[5] Iteration[190/348], entropy: 0.1931, uncertainty: 2.8004, loss: 0.0935, lr: 0.00e+00
+     Epoch[5] Iteration[200/348], entropy: 0.2828, uncertainty: 2.9697, loss: 0.1116, lr: 0.00e+00
+     Epoch[5] Iteration[210/348], entropy: 0.2380, uncertainty: 3.3571, loss: 0.0743, lr: 0.00e+00
+     Epoch[5] Iteration[220/348], entropy: 0.3650, uncertainty: 3.7592, loss: 0.1159, lr: 0.00e+00
+     Epoch[5] Iteration[230/348], entropy: 0.1683, uncertainty: 3.9126, loss: 0.0588, lr: 0.00e+00
+     Epoch[5] Iteration[240/348], entropy: 0.2816, uncertainty: 3.4291, loss: 0.1218, lr: 0.00e+00
+     Epoch[5] Iteration[250/348], entropy: 0.4283, uncertainty: 3.2373, loss: 0.1814, lr: 0.00e+00
+     Epoch[5] Iteration[260/348], entropy: 0.3492, uncertainty: 3.1669, loss: 0.1491, lr: 0.00e+00
+     Epoch[5] Iteration[270/348], entropy: 0.2511, uncertainty: 3.1271, loss: 0.0812, lr: 0.00e+00
+     Epoch[5] Iteration[280/348], entropy: 0.2523, uncertainty: 3.1236, loss: 0.1223, lr: 0.00e+00
+     Epoch[5] Iteration[290/348], entropy: 0.2539, uncertainty: 2.7652, loss: 0.1224, lr: 0.00e+00
+     Epoch[5] Iteration[300/348], entropy: 0.4143, uncertainty: 3.7661, loss: 0.1461, lr: 0.00e+00
+     Epoch[5] Iteration[310/348], entropy: 0.1632, uncertainty: 3.6044, loss: 0.0539, lr: 0.00e+00
+     Epoch[5] Iteration[320/348], entropy: 0.3050, uncertainty: 2.6819, loss: 0.1881, lr: 0.00e+00
+     Epoch[5] Iteration[330/348], entropy: 0.1959, uncertainty: 3.6298, loss: 0.0737, lr: 0.00e+00
+     Epoch[5] Iteration[340/348], entropy: 0.2097, uncertainty: 3.5367, loss: 0.0658, lr: 0.00e+00
+     Averaged stats: entropy_avg: 0.2867, uncertainty_avg: 3.2701, loss_avg: 0.1159, lr_avg: 0.00e+00
+     itm tta time 0:03:32
+     Epoch[6] Iteration[10/348], entropy: 0.2079, uncertainty: 2.9624, loss: 0.0860, lr: 1.73e-04
+     Epoch[6] Iteration[20/348], entropy: 0.2180, uncertainty: 3.0713, loss: 0.0835, lr: 1.73e-04
+     Epoch[6] Iteration[30/348], entropy: 0.2989, uncertainty: 3.3616, loss: 0.0997, lr: 1.73e-04
+     Epoch[6] Iteration[40/348], entropy: 0.2105, uncertainty: 3.5336, loss: 0.0629, lr: 1.73e-04
+     Epoch[6] Iteration[50/348], entropy: 0.2879, uncertainty: 3.0901, loss: 0.1233, lr: 1.73e-04
+     Epoch[6] Iteration[60/348], entropy: 0.1967, uncertainty: 3.8118, loss: 0.0779, lr: 1.73e-04
+     Epoch[6] Iteration[70/348], entropy: 0.3572, uncertainty: 3.4517, loss: 0.1040, lr: 1.73e-04
+     Epoch[6] Iteration[80/348], entropy: 0.3227, uncertainty: 3.0598, loss: 0.1195, lr: 1.73e-04
+     Epoch[6] Iteration[90/348], entropy: 0.2061, uncertainty: 2.7328, loss: 0.0943, lr: 1.73e-04
+     Epoch[6] Iteration[100/348], entropy: 0.2392, uncertainty: 3.2984, loss: 0.0869, lr: 1.73e-04
+     Epoch[6] Iteration[110/348], entropy: 0.1862, uncertainty: 3.1334, loss: 0.0721, lr: 1.73e-04
+     Epoch[6] Iteration[120/348], entropy: 0.4007, uncertainty: 4.0239, loss: 0.1272, lr: 1.73e-04
+     Epoch[6] Iteration[130/348], entropy: 0.2203, uncertainty: 3.0229, loss: 0.0940, lr: 1.73e-04
+     Epoch[6] Iteration[140/348], entropy: 0.2853, uncertainty: 3.4046, loss: 0.0988, lr: 1.73e-04
+     Epoch[6] Iteration[150/348], entropy: 0.2515, uncertainty: 3.4305, loss: 0.1115, lr: 1.73e-04
+     Epoch[6] Iteration[160/348], entropy: 0.1986, uncertainty: 3.5833, loss: 0.0532, lr: 1.73e-04
+     Epoch[6] Iteration[170/348], entropy: 0.2005, uncertainty: 3.5322, loss: 0.0504, lr: 1.73e-04
+     Epoch[6] Iteration[180/348], entropy: 0.2954, uncertainty: 3.5009, loss: 0.1024, lr: 1.73e-04
+     Epoch[6] Iteration[190/348], entropy: 0.3011, uncertainty: 4.1431, loss: 0.0892, lr: 1.73e-04
+     Epoch[6] Iteration[200/348], entropy: 0.1581, uncertainty: 3.9807, loss: 0.0455, lr: 1.73e-04
+     Epoch[6] Iteration[210/348], entropy: 0.4874, uncertainty: 3.2286, loss: 0.2425, lr: 1.73e-04
+     Epoch[6] Iteration[220/348], entropy: 0.2559, uncertainty: 2.9879, loss: 0.0756, lr: 1.73e-04
+     Epoch[6] Iteration[230/348], entropy: 0.2324, uncertainty: 3.8253, loss: 0.0508, lr: 1.73e-04
+     Epoch[6] Iteration[240/348], entropy: 0.2877, uncertainty: 2.6920, loss: 0.1260, lr: 1.73e-04
+     Epoch[6] Iteration[250/348], entropy: 0.3455, uncertainty: 3.8436, loss: 0.0818, lr: 1.73e-04
+     Epoch[6] Iteration[260/348], entropy: 0.4004, uncertainty: 3.6385, loss: 0.1841, lr: 1.73e-04
+     Epoch[6] Iteration[270/348], entropy: 0.2175, uncertainty: 3.6014, loss: 0.0962, lr: 1.73e-04
+     Epoch[6] Iteration[280/348], entropy: 0.2860, uncertainty: 2.8611, loss: 0.1075, lr: 1.73e-04
+     Epoch[6] Iteration[290/348], entropy: 0.3802, uncertainty: 3.0635, loss: 0.1348, lr: 1.73e-04
+     Epoch[6] Iteration[300/348], entropy: 0.3030, uncertainty: 3.5497, loss: 0.1078, lr: 1.73e-04
+     Epoch[6] Iteration[310/348], entropy: 0.2683, uncertainty: 3.2217, loss: 0.1055, lr: 1.73e-04
+     Epoch[6] Iteration[320/348], entropy: 0.3200, uncertainty: 2.9417, loss: 0.1559, lr: 1.73e-04
+     Epoch[6] Iteration[330/348], entropy: 0.3593, uncertainty: 3.1635, loss: 0.1005, lr: 1.73e-04
+     Epoch[6] Iteration[340/348], entropy: 0.1861, uncertainty: 3.3204, loss: 0.0646, lr: 1.73e-04
+     Averaged stats: entropy_avg: 0.2757, uncertainty_avg: 3.3549, loss_avg: 0.1005, lr_avg: 1.73e-04
+     itm tta time 0:03:31
+     Epoch[7] Iteration[10/348], entropy: 0.3731, uncertainty: 3.8217, loss: 0.1677, lr: 4.52e-04
+     Epoch[7] Iteration[20/348], entropy: 0.1625, uncertainty: 2.7347, loss: 0.0536, lr: 4.52e-04
+     Epoch[7] Iteration[30/348], entropy: 0.1715, uncertainty: 3.6922, loss: 0.0579, lr: 4.52e-04
+     Epoch[7] Iteration[40/348], entropy: 0.3427, uncertainty: 3.6834, loss: 0.1611, lr: 4.52e-04
+     Epoch[7] Iteration[50/348], entropy: 0.3774, uncertainty: 3.4735, loss: 0.2006, lr: 4.52e-04
+     Epoch[7] Iteration[60/348], entropy: 0.1744, uncertainty: 3.4646, loss: 0.0654, lr: 4.52e-04
+     Epoch[7] Iteration[70/348], entropy: 0.2478, uncertainty: 3.2414, loss: 0.1012, lr: 4.52e-04
+     Epoch[7] Iteration[80/348], entropy: 0.3336, uncertainty: 3.5347, loss: 0.1037, lr: 4.52e-04
+     Epoch[7] Iteration[90/348], entropy: 0.3641, uncertainty: 3.8348, loss: 0.1272, lr: 4.52e-04
+     Epoch[7] Iteration[100/348], entropy: 0.1952, uncertainty: 2.8605, loss: 0.0811, lr: 4.52e-04
+     Epoch[7] Iteration[110/348], entropy: 0.1906, uncertainty: 3.3363, loss: 0.0891, lr: 4.52e-04
+     Epoch[7] Iteration[120/348], entropy: 0.2849, uncertainty: 3.2230, loss: 0.0909, lr: 4.52e-04
+     Epoch[7] Iteration[130/348], entropy: 0.4589, uncertainty: 3.1152, loss: 0.1240, lr: 4.52e-04
+     Epoch[7] Iteration[140/348], entropy: 0.3577, uncertainty: 3.5037, loss: 0.1378, lr: 4.52e-04
+     Epoch[7] Iteration[150/348], entropy: 0.2604, uncertainty: 3.5845, loss: 0.1020, lr: 4.52e-04
+     Epoch[7] Iteration[160/348], entropy: 0.3908, uncertainty: 4.4418, loss: 0.0828, lr: 4.52e-04
+     Epoch[7] Iteration[170/348], entropy: 0.2839, uncertainty: 3.4854, loss: 0.1342, lr: 4.52e-04
+     Epoch[7] Iteration[180/348], entropy: 0.3303, uncertainty: 3.0888, loss: 0.2348, lr: 4.52e-04
+     Epoch[7] Iteration[190/348], entropy: 0.2062, uncertainty: 3.3668, loss: 0.0695, lr: 4.52e-04
+     Epoch[7] Iteration[200/348], entropy: 0.2332, uncertainty: 2.7862, loss: 0.1154, lr: 4.52e-04
+     Epoch[7] Iteration[210/348], entropy: 0.2932, uncertainty: 3.6296, loss: 0.0736, lr: 4.52e-04
+     Epoch[7] Iteration[220/348], entropy: 0.1256, uncertainty: 3.4156, loss: 0.0367, lr: 4.52e-04
+     Epoch[7] Iteration[230/348], entropy: 0.3878, uncertainty: 3.1638, loss: 0.1630, lr: 4.52e-04
+     Epoch[7] Iteration[240/348], entropy: 0.4438, uncertainty: 3.4076, loss: 0.1717, lr: 4.52e-04
+     Epoch[7] Iteration[250/348], entropy: 0.2790, uncertainty: 3.0901, loss: 0.0906, lr: 4.52e-04
+     Epoch[7] Iteration[260/348], entropy: 0.2843, uncertainty: 3.1938, loss: 0.1124, lr: 4.52e-04
+     Epoch[7] Iteration[270/348], entropy: 0.1896, uncertainty: 3.0354, loss: 0.0668, lr: 4.52e-04
+     Epoch[7] Iteration[280/348], entropy: 0.2385, uncertainty: 3.3226, loss: 0.0809, lr: 4.52e-04
+     Epoch[7] Iteration[290/348], entropy: 0.3694, uncertainty: 3.1267, loss: 0.1389, lr: 4.52e-04
+     Epoch[7] Iteration[300/348], entropy: 0.1451, uncertainty: 3.0555, loss: 0.0906, lr: 4.52e-04
+     Epoch[7] Iteration[310/348], entropy: 0.1186, uncertainty: 3.3176, loss: 0.0433, lr: 4.52e-04
+     Epoch[7] Iteration[320/348], entropy: 0.1994, uncertainty: 2.8937, loss: 0.0646, lr: 4.52e-04
+     Epoch[7] Iteration[330/348], entropy: 0.2473, uncertainty: 3.7317, loss: 0.0703, lr: 4.52e-04
+     Epoch[7] Iteration[340/348], entropy: 0.4395, uncertainty: 2.3707, loss: 0.2586, lr: 4.52e-04
+     Averaged stats: entropy_avg: 0.2794, uncertainty_avg: 3.3243, loss_avg: 0.1107, lr_avg: 4.52e-04
+     itm tta time 0:03:31
+     Epoch[8] Iteration[10/348], entropy: 0.3495, uncertainty: 3.4799, loss: 0.1201, lr: 4.52e-04
+     Epoch[8] Iteration[20/348], entropy: 0.2530, uncertainty: 3.0089, loss: 0.1101, lr: 4.52e-04
+     Epoch[8] Iteration[30/348], entropy: 0.2871, uncertainty: 3.7286, loss: 0.1054, lr: 4.52e-04
+     Epoch[8] Iteration[40/348], entropy: 0.2523, uncertainty: 2.8349, loss: 0.0948, lr: 4.52e-04
+     Epoch[8] Iteration[50/348], entropy: 0.3794, uncertainty: 3.4187, loss: 0.1524, lr: 4.52e-04
+     Epoch[8] Iteration[60/348], entropy: 0.3080, uncertainty: 3.9140, loss: 0.1143, lr: 4.52e-04
+     Epoch[8] Iteration[70/348], entropy: 0.2146, uncertainty: 3.7051, loss: 0.0617, lr: 4.52e-04
+     Epoch[8] Iteration[80/348], entropy: 0.1671, uncertainty: 2.9099, loss: 0.0949, lr: 4.52e-04
+     Epoch[8] Iteration[90/348], entropy: 0.2772, uncertainty: 2.9987, loss: 0.1020, lr: 4.52e-04
+     Epoch[8] Iteration[100/348], entropy: 0.2129, uncertainty: 3.4990, loss: 0.0630, lr: 4.52e-04
+     Epoch[8] Iteration[110/348], entropy: 0.2853, uncertainty: 3.3695, loss: 0.0914, lr: 4.52e-04
+     Epoch[8] Iteration[120/348], entropy: 0.2165, uncertainty: 2.7667, loss: 0.0856, lr: 4.52e-04
+     Epoch[8] Iteration[130/348], entropy: 0.2780, uncertainty: 3.6174, loss: 0.0784, lr: 4.52e-04
+     Epoch[8] Iteration[140/348], entropy: 0.1913, uncertainty: 3.3702, loss: 0.0540, lr: 4.52e-04
+     Epoch[8] Iteration[150/348], entropy: 0.4279, uncertainty: 3.2716, loss: 0.1380, lr: 4.52e-04
+     Epoch[8] Iteration[160/348], entropy: 0.3393, uncertainty: 3.6487, loss: 0.1143, lr: 4.52e-04
+     Epoch[8] Iteration[170/348], entropy: 0.2763, uncertainty: 3.3534, loss: 0.0893, lr: 4.52e-04
+     Epoch[8] Iteration[180/348], entropy: 0.2329, uncertainty: 3.2417, loss: 0.1109, lr: 4.52e-04
+     Epoch[8] Iteration[190/348], entropy: 0.3831, uncertainty: 2.9251, loss: 0.1818, lr: 4.52e-04
+     Epoch[8] Iteration[200/348], entropy: 0.2402, uncertainty: 3.6107, loss: 0.0871, lr: 4.52e-04
+     Epoch[8] Iteration[210/348], entropy: 0.4610, uncertainty: 2.9241, loss: 0.1884, lr: 4.52e-04
+     Epoch[8] Iteration[220/348], entropy: 0.4970, uncertainty: 3.3600, loss: 0.1599, lr: 4.52e-04
+     Epoch[8] Iteration[230/348], entropy: 0.1612, uncertainty: 3.7576, loss: 0.0608, lr: 4.52e-04
+     Epoch[8] Iteration[240/348], entropy: 0.0975, uncertainty: 3.6139, loss: 0.0384, lr: 4.52e-04
+     Epoch[8] Iteration[250/348], entropy: 0.1709, uncertainty: 2.8984, loss: 0.0666, lr: 4.52e-04
+     Epoch[8] Iteration[260/348], entropy: 0.1838, uncertainty: 2.4214, loss: 0.0938, lr: 4.52e-04
+     Epoch[8] Iteration[270/348], entropy: 0.2618, uncertainty: 3.5414, loss: 0.1022, lr: 4.52e-04
+     Epoch[8] Iteration[280/348], entropy: 0.2923, uncertainty: 3.4035, loss: 0.0907, lr: 4.52e-04
+     Epoch[8] Iteration[290/348], entropy: 0.2396, uncertainty: 3.8283, loss: 0.0624, lr: 4.52e-04
+     Epoch[8] Iteration[300/348], entropy: 0.2900, uncertainty: 3.8040, loss: 0.0824, lr: 4.52e-04
+     Epoch[8] Iteration[310/348], entropy: 0.2324, uncertainty: 2.9656, loss: 0.1206, lr: 4.52e-04
+     Epoch[8] Iteration[320/348], entropy: 0.1720, uncertainty: 2.9257, loss: 0.0564, lr: 4.52e-04
+     Epoch[8] Iteration[330/348], entropy: 0.3094, uncertainty: 3.3610, loss: 0.1036, lr: 4.52e-04
+     Epoch[8] Iteration[340/348], entropy: 0.4180, uncertainty: 2.8721, loss: 0.2254, lr: 4.52e-04
+     Averaged stats: entropy_avg: 0.2753, uncertainty_avg: 3.3044, loss_avg: 0.1030, lr_avg: 4.52e-04
+     itm tta time 0:03:32
+     Epoch[9] Iteration[10/348], entropy: 0.2923, uncertainty: 3.1757, loss: 0.1297, lr: 1.73e-04
+     Epoch[9] Iteration[20/348], entropy: 0.2184, uncertainty: 3.6511, loss: 0.0722, lr: 1.73e-04
+     Epoch[9] Iteration[30/348], entropy: 0.2221, uncertainty: 3.5373, loss: 0.1027, lr: 1.73e-04
+     Epoch[9] Iteration[40/348], entropy: 0.1662, uncertainty: 3.6717, loss: 0.0600, lr: 1.73e-04
+     Epoch[9] Iteration[50/348], entropy: 0.3750, uncertainty: 2.8818, loss: 0.1762, lr: 1.73e-04
+     Epoch[9] Iteration[60/348], entropy: 0.3361, uncertainty: 3.1469, loss: 0.1086, lr: 1.73e-04
+     Epoch[9] Iteration[70/348], entropy: 0.3704, uncertainty: 3.1194, loss: 0.1456, lr: 1.73e-04
+     Epoch[9] Iteration[80/348], entropy: 0.4721, uncertainty: 2.8764, loss: 0.1582, lr: 1.73e-04
+     Epoch[9] Iteration[90/348], entropy: 0.2808, uncertainty: 4.0568, loss: 0.0731, lr: 1.73e-04
+     Epoch[9] Iteration[100/348], entropy: 0.4371, uncertainty: 3.5146, loss: 0.1438, lr: 1.73e-04
+     Epoch[9] Iteration[110/348], entropy: 0.3178, uncertainty: 3.5394, loss: 0.0900, lr: 1.73e-04
+     Epoch[9] Iteration[120/348], entropy: 0.2880, uncertainty: 3.0045, loss: 0.1045, lr: 1.73e-04
+     Epoch[9] Iteration[130/348], entropy: 0.3045, uncertainty: 3.4598, loss: 0.1435, lr: 1.73e-04
+     Epoch[9] Iteration[140/348], entropy: 0.1424, uncertainty: 3.3745, loss: 0.0524, lr: 1.73e-04
+     Epoch[9] Iteration[150/348], entropy: 0.2699, uncertainty: 2.9039, loss: 0.1202, lr: 1.73e-04
+     Epoch[9] Iteration[160/348], entropy: 0.3253, uncertainty: 3.4688, loss: 0.1071, lr: 1.73e-04
+     Epoch[9] Iteration[170/348], entropy: 0.1314, uncertainty: 2.8898, loss: 0.0406, lr: 1.73e-04
+     Epoch[9] Iteration[180/348], entropy: 0.2478, uncertainty: 2.9790, loss: 0.0895, lr: 1.73e-04
+     Epoch[9] Iteration[190/348], entropy: 0.2601, uncertainty: 3.6154, loss: 0.1163, lr: 1.73e-04
+     Epoch[9] Iteration[200/348], entropy: 0.3495, uncertainty: 3.1914, loss: 0.1754, lr: 1.73e-04
+     Epoch[9] Iteration[210/348], entropy: 0.2029, uncertainty: 3.3830, loss: 0.0585, lr: 1.73e-04
+     Epoch[9] Iteration[220/348], entropy: 0.3673, uncertainty: 3.6853, loss: 0.1004, lr: 1.73e-04
+     Epoch[9] Iteration[230/348], entropy: 0.2598, uncertainty: 3.3570, loss: 0.1303, lr: 1.73e-04
+     Epoch[9] Iteration[240/348], entropy: 0.1662, uncertainty: 3.2448, loss: 0.0525, lr: 1.73e-04
+     Epoch[9] Iteration[250/348], entropy: 0.2780, uncertainty: 3.3206, loss: 0.1055, lr: 1.73e-04
+     Epoch[9] Iteration[260/348], entropy: 0.2418, uncertainty: 4.2335, loss: 0.0521, lr: 1.73e-04
+     Epoch[9] Iteration[270/348], entropy: 0.3250, uncertainty: 2.5325, loss: 0.1787, lr: 1.73e-04
+     Epoch[9] Iteration[280/348], entropy: 0.2568, uncertainty: 4.1473, loss: 0.0642, lr: 1.73e-04
+     Epoch[9] Iteration[290/348], entropy: 0.3860, uncertainty: 3.1415, loss: 0.1591, lr: 1.73e-04
+     Epoch[9] Iteration[300/348], entropy: 0.1982, uncertainty: 3.2776, loss: 0.0833, lr: 1.73e-04
+     Epoch[9] Iteration[310/348], entropy: 0.1590, uncertainty: 3.1663, loss: 0.0656, lr: 1.73e-04
+     Epoch[9] Iteration[320/348], entropy: 0.3235, uncertainty: 3.7513, loss: 0.1123, lr: 1.73e-04
+     Epoch[9] Iteration[330/348], entropy: 0.4563, uncertainty: 3.1084, loss: 0.1546, lr: 1.73e-04
+     Epoch[9] Iteration[340/348], entropy: 0.3049, uncertainty: 2.8448, loss: 0.1268, lr: 1.73e-04
+     Averaged stats: entropy_avg: 0.2863, uncertainty_avg: 3.3309, loss_avg: 0.1075, lr_avg: 1.73e-04
+     itm tta time 0:03:31
+(5568, 8)
+### TTA Eval Score: 
++-------+--------+--------+--------+--------+-------+
+| epoch |   R1   |   R5   |  R10   |  mAP   |  mINP |
++-------+--------+--------+--------+--------+-------+
+|  -999 | 37.268 | 55.542 | 63.553 | 20.139 | 2.214 |
+|   0   | 39.530 | 57.059 | 65.130 | 21.134 | 2.227 |
+|   1   | 39.954 | 57.406 | 65.367 | 21.269 | 2.213 |
+|   2   | 40.261 | 57.709 | 65.704 | 21.424 | 2.227 |
+|   4   | 40.281 | 57.799 | 65.770 | 21.497 | 2.261 |
+|   9   | 40.553 | 58.016 | 66.042 | 21.647 | 2.268 |
++-------+--------+--------+--------+--------+-------+
+     logs:  {'epo': 9, 'R1': np.float32(40.553), 'R5': np.float32(58.016), 'R10': np.float32(66.042), 'mAP': np.float32(21.647), 'mINP': np.float32(2.268), 'entropy': 0.28625819218509335, 'uncertainty': 3.3309401273727417, 'loss': 0.10745587002705126, 'lr': 0.0001727457514062291}
+### best epoch 9 : {'epo': '9', 'R1': '40.553', 'R5': '58.016', 'R10': '66.042', 'mAP': '21.647', 'mINP': '2.268', 'entropy': '0.28625819218509335', 'uncertainty': '3.3309401273727417', 'loss': '0.10745587002705126', 'lr': '0.0001727457514062291'}
+### Time 0:44:13

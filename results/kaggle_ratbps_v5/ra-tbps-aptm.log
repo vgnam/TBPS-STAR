@@ -1,0 +1,186 @@
+[{"stream_name":"stdout","time":1.051159724,"data":"$ nvidia-smi --query-gpu=name,memory.total --format=csv\n"}
+,{"stream_name":"stdout","time":1.080778796,"data":"name, memory.total [MiB]\n"}
+,{"stream_name":"stdout","time":1.080800039,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":1.080817309,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":1.086931972,"data":"$ pip install -q gdown \"transformers==4.55.0\"\n"}
+,{"stream_name":"stderr","time":18.421218274,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":18.421248107,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":18.421252461,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":18.421255909,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":18.421272644,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":18.64136118,"data":"$ curl -sL --fail -o cuhk.tar.gz https://huggingface.co/datasets/cjc/CHUK-PEDES/resolve/main/CUHK-PEDES.tar.gz \u0026\u0026 mkdir -p data \u0026\u0026 tar -xzf cuhk.tar.gz -C data \u0026\u0026 rm cuhk.tar.gz\n"}
+,{"stream_name":"stdout","time":36.169984244,"data":"$ git clone -q --depth 1 https://github.com/Shuyu-XJTU/APTM.git third_party/APTM\n"}
+,{"stream_name":"stdout","time":39.027533844,"data":"$ gdown -q \"1dokRhjYL71VbzFfLfyyDmh7MXUOyBySf\" -O ft_cuhk.zip \u0026\u0026 mkdir -p checkpoints/aptm_ft_cuhk \u0026\u0026 unzip -q ft_cuhk.zip -d checkpoints/aptm_ft_cuhk \u0026\u0026 rm ft_cuhk.zip\n"}
+,{"stream_name":"stdout","time":56.544621312,"data":"$ gdown -q \"1HTeDZUVrZr6nL56ZlkYBNqjSWh3IGV2X\" -O rstp.zip \u0026\u0026 mkdir -p data/rstp \u0026\u0026 unzip -q rstp.zip -d data/rstp \u0026\u0026 rm rstp.zip\n"}
+,{"stream_name":"stdout","time":70.087259231,"data":"checkpoints found: ['checkpoints/aptm_ft_cuhk/ft_cuhk/checkpoint_best.pth']\n"}
+,{"stream_name":"stdout","time":70.08794199,"data":"$ python -u -m ratbps.extract_aptm --fmt cuhk --root data/CUHK-PEDES --split test --ckpt checkpoints/aptm_ft_cuhk/ft_cuhk/checkpoint_best.pth --aptm third_party/APTM --topn 128 --out emb/cuhk_test_fp16.npz --amp\n"}
+,{"stream_name":"stderr","time":90.136974303,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers\n"}
+,{"stream_name":"stderr","time":90.13700757,"data":"  warnings.warn(f\"Importing from {__name__} is deprecated, please import via timm.layers\", FutureWarning)\n"}
+,{"stream_name":"stdout","time":98.884765447,"data":"use_swin\n"}
+,{"stream_name":"stderr","time":99.516227929,"data":"/usr/local/lib/python3.13/dist-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4381.)\n"}
+,{"stream_name":"stderr","time":99.516258424,"data":"  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]\n"}
+,{"stream_name":"stdout","time":104.574266873,"data":"loaded checkpoints/aptm_ft_cuhk/ft_cuhk/checkpoint_best.pth (unexpected keys: 0)\n"}
+,{"stream_name":"stdout","time":111.066526434,"data":"cuhk/test: 3074 images, 6156 captions\n"}
+,{"stream_name":"stdout","time":130.940908519,"data":"images done 20s, tokens (3074, 49, 1024)\n"}
+,{"stream_name":"stdout","time":133.955139687,"data":"  captions 32/6156  23s\n"}
+,{"stream_name":"stdout","time":772.093098818,"data":"wrote emb/cuhk_test_fp16.npz in 661s\n"}
+,{"stream_name":"stdout","time":779.581916497,"data":"$ python -u -m ratbps.check_baseline emb/cuhk_test_fp16.npz --json /kaggle/working/baseline.json\n"}
+,{"stream_name":"stdout","time":784.155286949,"data":"emb/cuhk_test_fp16.npz: ITC R1 38.50 | top-16: recall 75.06, ITM R1 63.94 mAP 50.23 | top-32: recall 84.02, ITM R1 68.29 mAP 54.88 | top-64: recall 90.27, ITM R1 70.63 mAP 58.54 | top-128: recall 94.77, ITM R1 71.73 mAP 60.93\n"}
+,{"stream_name":"stdout","time":784.711610719,"data":"$ python -u -m ratbps.extract_aptm --fmt cuhk --root data/CUHK-PEDES --split train --ckpt checkpoints/aptm_ft_cuhk/ft_cuhk/checkpoint_best.pth --aptm third_party/APTM --topn 16 --out emb/cuhk_train.npz --amp --gt\n"}
+,{"stream_name":"stderr","time":788.593833445,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers\n"}
+,{"stream_name":"stderr","time":788.593867521,"data":"  warnings.warn(f\"Importing from {__name__} is deprecated, please import via timm.layers\", FutureWarning)\n"}
+,{"stream_name":"stdout","time":791.596595053,"data":"use_swin\n"}
+,{"stream_name":"stderr","time":791.599088713,"data":"/usr/local/lib/python3.13/dist-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4381.)\n"}
+,{"stream_name":"stderr","time":791.599111824,"data":"  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]\n"}
+,{"stream_name":"stdout","time":795.550577326,"data":"loaded checkpoints/aptm_ft_cuhk/ft_cuhk/checkpoint_best.pth (unexpected keys: 0)\n"}
+,{"stream_name":"stdout","time":797.548120074,"data":"cuhk/train: 34054 images, 68126 captions\n"}
+,{"stream_name":"stdout","time":981.223645533,"data":"images done 184s, tokens (34054, 49, 1024)\n"}
+,{"stream_name":"stdout","time":981.66754939,"data":"  captions 32/68126  184s\n"}
+,{"stream_name":"stdout","time":1068.844276161,"data":"  captions 6432/68126  271s\n"}
+,{"stream_name":"stdout","time":1156.139636466,"data":"  captions 12832/68126  359s\n"}
+,{"stream_name":"stdout","time":1243.375099338,"data":"  captions 19232/68126  446s\n"}
+,{"stream_name":"stdout","time":1331.029227629,"data":"  captions 25632/68126  533s\n"}
+,{"stream_name":"stdout","time":1418.418104074,"data":"  captions 32032/68126  621s\n"}
+,{"stream_name":"stdout","time":1505.55597349,"data":"  captions 38432/68126  708s\n"}
+,{"stream_name":"stdout","time":1592.8731701,"data":"  captions 44832/68126  795s\n"}
+,{"stream_name":"stdout","time":1679.978220312,"data":"  captions 51232/68126  882s\n"}
+,{"stream_name":"stdout","time":1767.289322845,"data":"  captions 57632/68126  970s\n"}
+,{"stream_name":"stdout","time":1854.718249382,"data":"  captions 64032/68126  1057s\n"}
+,{"stream_name":"stdout","time":1912.514508684,"data":"wrote emb/cuhk_train.npz in 1115s\n"}
+,{"stream_name":"stdout","time":1914.955298386,"data":"no ICFG-PEDES.json/ICFG_PEDES.json found: skipping icfg\n"}
+,{"stream_name":"stdout","time":1914.989288652,"data":"$ python -u -m ratbps.extract_aptm --fmt rstp --root data/rstp --split test --ckpt checkpoints/aptm_ft_cuhk/ft_cuhk/checkpoint_best.pth --aptm third_party/APTM --topn 128 --out emb/rstp_test.npz --amp\n"}
+,{"stream_name":"stderr","time":1919.035895064,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers\n"}
+,{"stream_name":"stderr","time":1919.035960338,"data":"  warnings.warn(f\"Importing from {__name__} is deprecated, please import via timm.layers\", FutureWarning)\n"}
+,{"stream_name":"stdout","time":1922.048830898,"data":"use_swin\n"}
+,{"stream_name":"stderr","time":1922.050863751,"data":"/usr/local/lib/python3.13/dist-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4381.)\n"}
+,{"stream_name":"stderr","time":1922.050883921,"data":"  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]\n"}
+,{"stream_name":"stdout","time":1926.080829076,"data":"loaded checkpoints/aptm_ft_cuhk/ft_cuhk/checkpoint_best.pth (unexpected keys: 0)\n"}
+,{"stream_name":"stdout","time":1927.539590952,"data":"rstp/test: 1000 images, 2000 captions\n"}
+,{"stream_name":"stdout","time":1934.128453081,"data":"images done 7s, tokens (1000, 49, 1024)\n"}
+,{"stream_name":"stdout","time":1937.408820683,"data":"  captions 32/2000  10s\n"}
+,{"stream_name":"stdout","time":2143.888184732,"data":"wrote emb/rstp_test.npz in 216s\n"}
+,{"stream_name":"stdout","time":2145.680308118,"data":"$ python -u -m ratbps.check_baseline emb/rstp_test.npz --json /kaggle/working/baseline_targets.json\n"}
+,{"stream_name":"stdout","time":2148.598102213,"data":"emb/rstp_test.npz: ITC R1 46.25 | top-16: recall 85.60, ITM R1 54.70 mAP 38.10 | top-32: recall 92.30, ITM R1 54.90 mAP 38.70 | top-64: recall 96.40, ITM R1 55.15 mAP 39.01 | top-128: recall 99.05, ITM R1 55.05 mAP 38.98\n"}
+,{"stream_name":"stdout","time":2149.173630912,"data":"$ python -u -m ratbps.run --src emb/cuhk_train.npz --target cuhk_test=emb/cuhk_test_fp16.npz --target rstp_test=emb/rstp_test.npz --out /kaggle/working/ratbps\n"}
+,{"stream_name":"stdout","time":2150.992373345,"data":"args: {'src': 'emb/cuhk_train.npz', 'target': ['cuhk_test=emb/cuhk_test_fp16.npz', 'rstp_test=emb/rstp_test.npz'], 'out': '/kaggle/working/ratbps', 'k': 4, 'ks': '1,2,4,8', 'pseudo_fracs': '0,0.25,0.5,1', 'ntr': 16, 'steps_r': 3000, 'steps_g': 3000, 'bs_r': 512, 'neg_r': 2048, 'bs_g': 64, 'lr': 0.0003, 'tau': 0.07, 'lam': 1.0, 'margin': 0.1, 'pseudo_r': 5, 'min_logodds': 0.0, 'seed': 0}\n"}
+,{"stream_name":"stdout","time":2152.344453339,"data":"emb/cuhk_train.npz: 68126 captions, 34054 images, top-16 candidates\n"}
+,{"stream_name":"stdout","time":2152.457972715,"data":"simulation memory: 46803 entries (34008 annotated, 12795 pseudo), pseudo-pair precision 90.3%\n"}
+,{"stream_name":"stderr","time":2153.159485691,"data":"/kaggle/temp/tbps/ratbps/model.py:28: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True\n"}
+,{"stream_name":"stderr","time":2153.159522448,"data":"  self.enc = nn.TransformerEncoder(layer, layers)\n"}
+,{"stream_name":"stdout","time":2153.163670077,"data":"training retriever R\n"}
+,{"stream_name":"stdout","time":2155.817090329,"data":"  R step     0  L_align 7.7166\n"}
+,{"stream_name":"stdout","time":2203.902844551,"data":"  R step   500  L_align 0.5324\n"}
+,{"stream_name":"stdout","time":2251.084156357,"data":"  R step  1000  L_align 0.3832\n"}
+,{"stream_name":"stdout","time":2298.708027302,"data":"  R step  1500  L_align 0.2743\n"}
+,{"stream_name":"stdout","time":2346.071534044,"data":"  R step  2000  L_align 0.2170\n"}
+,{"stream_name":"stdout","time":2393.593916601,"data":"  R step  2500  L_align 0.1862\n"}
+,{"stream_name":"stdout","time":2441.093813173,"data":"  R step  2999  L_align 0.1610\n"}
+,{"stream_name":"stdout","time":2452.84635426,"data":"  R: evidence shows the candidate's identity 78.3% (at least one of top-4: 95.5%)\n"}
+,{"stream_name":"stdout","time":2452.846426858,"data":"training scorer g [full, K=4, lambda=1.0]\n"}
+,{"stream_name":"stdout","time":2452.889249277,"data":"  23709/34118 training queries have a match in their top-16\n"}
+,{"stream_name":"stdout","time":2453.076212463,"data":"  g step     0  L_rel 0.5838  L_irrel 0.5838\n"}
+,{"stream_name":"stdout","time":2481.90972179,"data":"  g step   500  L_rel 0.1300  L_irrel 0.2623\n"}
+,{"stream_name":"stdout","time":2510.629110806,"data":"  g step  1000  L_rel 0.1606  L_irrel 0.3744\n"}
+,{"stream_name":"stdout","time":2539.273537894,"data":"  g step  1500  L_rel 0.0449  L_irrel 0.2943\n"}
+,{"stream_name":"stdout","time":2567.951608072,"data":"  g step  2000  L_rel 0.2202  L_irrel 0.4177\n"}
+,{"stream_name":"stdout","time":2596.590561652,"data":"  g step  2500  L_rel 0.1664  L_irrel 0.2830\n"}
+,{"stream_name":"stdout","time":2625.204857769,"data":"  g step  2999  L_rel 0.1497  L_irrel 0.3317\n"}
+,{"stream_name":"stdout","time":2625.205510961,"data":"training scorer g [no_adhere, K=4, lambda=0.0]\n"}
+,{"stream_name":"stdout","time":2625.234368026,"data":"  23709/34118 training queries have a match in their top-16\n"}
+,{"stream_name":"stdout","time":2625.288499653,"data":"  g step     0  L_rel 0.4511  L_irrel 0.4511\n"}
+,{"stream_name":"stdout","time":2653.917646488,"data":"  g step   500  L_rel 0.2611  L_irrel 0.3971\n"}
+,{"stream_name":"stdout","time":2682.589027203,"data":"  g step  1000  L_rel 0.2023  L_irrel 0.3669\n"}
+,{"stream_name":"stdout","time":2711.307490338,"data":"  g step  1500  L_rel 0.2198  L_irrel 0.3871\n"}
+,{"stream_name":"stdout","time":2740.020340459,"data":"  g step  2000  L_rel 0.1147  L_irrel 0.3808\n"}
+,{"stream_name":"stdout","time":2768.734786694,"data":"  g step  2500  L_rel 0.2901  L_irrel 0.5486\n"}
+,{"stream_name":"stdout","time":2797.41821028,"data":"  g step  2999  L_rel 0.1519  L_irrel 0.2971\n"}
+,{"stream_name":"stdout","time":2797.419062819,"data":"training scorer g [k1, K=1, lambda=1.0]\n"}
+,{"stream_name":"stdout","time":2797.429125107,"data":"  23709/34118 training queries have a match in their top-16\n"}
+,{"stream_name":"stdout","time":2797.446182946,"data":"  g step     0  L_rel 0.3733  L_irrel 0.3733\n"}
+,{"stream_name":"stdout","time":2805.720986343,"data":"  g step   500  L_rel 0.1899  L_irrel 0.3966\n"}
+,{"stream_name":"stdout","time":2814.003681391,"data":"  g step  1000  L_rel 0.1937  L_irrel 0.4524\n"}
+,{"stream_name":"stdout","time":2822.281419119,"data":"  g step  1500  L_rel 0.2358  L_irrel 0.3717\n"}
+,{"stream_name":"stdout","time":2830.534532202,"data":"  g step  2000  L_rel 0.2615  L_irrel 0.4039\n"}
+,{"stream_name":"stdout","time":2838.770783838,"data":"  g step  2500  L_rel 0.1856  L_irrel 0.4210\n"}
+,{"stream_name":"stdout","time":2846.99792166,"data":"  g step  2999  L_rel 0.2381  L_irrel 0.4223\n"}
+,{"stream_name":"stdout","time":2846.998329556,"data":"training scorer g [k2, K=2, lambda=1.0]\n"}
+,{"stream_name":"stdout","time":2847.013147354,"data":"  23709/34118 training queries have a match in their top-16\n"}
+,{"stream_name":"stdout","time":2847.041732183,"data":"  g step     0  L_rel 0.6354  L_irrel 0.6354\n"}
+,{"stream_name":"stdout","time":2861.973691662,"data":"  g step   500  L_rel 0.2251  L_irrel 0.3688\n"}
+,{"stream_name":"stdout","time":2876.915786727,"data":"  g step  1000  L_rel 0.1270  L_irrel 0.3216\n"}
+,{"stream_name":"stdout","time":2891.829843529,"data":"  g step  1500  L_rel 0.1157  L_irrel 0.2722\n"}
+,{"stream_name":"stdout","time":2906.760528486,"data":"  g step  2000  L_rel 0.2071  L_irrel 0.2819\n"}
+,{"stream_name":"stdout","time":2921.657093351,"data":"  g step  2500  L_rel 0.1022  L_irrel 0.2234\n"}
+,{"stream_name":"stdout","time":2936.55441516,"data":"  g step  2999  L_rel 0.1971  L_irrel 0.3665\n"}
+,{"stream_name":"stdout","time":2936.555136028,"data":"training scorer g [k8, K=8, lambda=1.0]\n"}
+,{"stream_name":"stdout","time":2936.605409613,"data":"  23709/34118 training queries have a match in their top-16\n"}
+,{"stream_name":"stdout","time":2936.713475456,"data":"  g step     0  L_rel 0.2823  L_irrel 0.2823\n"}
+,{"stream_name":"stdout","time":2993.540071383,"data":"  g step   500  L_rel 0.3618  L_irrel 0.4583\n"}
+,{"stream_name":"stdout","time":3050.425848902,"data":"  g step  1000  L_rel 0.2168  L_irrel 0.4630\n"}
+,{"stream_name":"stdout","time":3107.19604932,"data":"  g step  1500  L_rel 0.3162  L_irrel 0.6023\n"}
+,{"stream_name":"stdout","time":3164.054486124,"data":"  g step  2000  L_rel 0.0922  L_irrel 0.1923\n"}
+,{"stream_name":"stdout","time":3220.968228013,"data":"  g step  2500  L_rel 0.1421  L_irrel 0.3294\n"}
+,{"stream_name":"stdout","time":3277.804714085,"data":"  g step  2999  L_rel 0.2016  L_irrel 0.3441\n"}
+,{"stream_name":"stdout","time":3277.8064605,"data":"training done in 1125s\n"}
+,{"stream_name":"stdout","time":3360.418703001,"data":"  knn: beta=0.0 (simulation R1 60.00)\n"}
+,{"stream_name":"stdout","time":3374.790786604,"data":"  rocchio: beta=1.0 (simulation R1 60.07)\n"}
+,{"stream_name":"stdout","time":3383.074179869,"data":"  simulation R1: ITM 60.00, RA-TBPS 65.20\n"}
+,{"stream_name":"stdout","time":3384.057380544,"data":"emb/cuhk_test_fp16.npz: 6156 captions, 3074 images, top-128 candidates\n"}
+,{"stream_name":"stdout","time":3384.398306261,"data":"[cuhk_test] memory: 70952 entries (68126 annotated, 2826 pseudo), pseudo-pair precision 90.2%\n"}
+,{"stream_name":"stdout","time":3653.245571123,"data":"[cuhk_test] adaptation 24.3s for 6156 queries, peak VRAM 3.48 GiB\n"}
+,{"stream_name":"stdout","time":3653.245614659,"data":"method                                  R1      R5     R10     mAP\n"}
+,{"stream_name":"stdout","time":3653.246564211,"data":"ITC only                             38.50   59.86   69.15   36.40\n"}
+,{"stream_name":"stdout","time":3653.246584835,"data":"APTM (ITC-\u003eITM)                      71.73   86.74   90.25   60.93\n"}
+,{"stream_name":"stdout","time":3653.24659097,"data":"+ kNN memory (training-free)         71.73   86.74   90.25   60.93\n"}
+,{"stream_name":"stdout","time":3653.246595398,"data":"+ Q-prototype (training-free)        71.95   86.78   90.25   61.15\n"}
+,{"stream_name":"stdout","time":3653.246599585,"data":"+ R + g, no adherence loss           72.16   86.39   89.99   61.37\n"}
+,{"stream_name":"stdout","time":3653.24660374,"data":"+ R + g (RA-TBPS)                    72.06   86.53   89.64   60.28\n"}
+,{"stream_name":"stdout","time":3653.2466084,"data":"  diag: random evidence              72.58   86.42   90.38   61.61\n"}
+,{"stream_name":"stdout","time":3653.246613223,"data":"  diag: raw-cosine retriever         71.41   85.62   89.38   59.91\n"}
+,{"stream_name":"stdout","time":3653.246617751,"data":"  diag: source memory only           71.72   85.64   89.28   59.75\n"}
+,{"stream_name":"stdout","time":3653.246623008,"data":"  diag: pseudo memory only           72.17   87.04   90.37   60.74\n"}
+,{"stream_name":"stdout","time":3653.246627389,"data":"contextual sensitivity S_ctx: RA-TBPS 0.5116, no adherence loss 0.3370\n"}
+,{"stream_name":"stdout","time":3653.246631681,"data":"   K      R1     mAP  ms/query\n"}
+,{"stream_name":"stdout","time":3653.246635733,"data":"   1   72.16   60.75     0.301\n"}
+,{"stream_name":"stdout","time":3653.246639595,"data":"   2   71.69   60.49     0.553\n"}
+,{"stream_name":"stdout","time":3653.246643569,"data":"   4   72.06   60.28     1.083\n"}
+,{"stream_name":"stdout","time":3653.246658432,"data":"   8   71.69   59.45     2.105\n"}
+,{"stream_name":"stdout","time":3653.246661888,"data":" pseudo kept  entries      R1     mAP\n"}
+,{"stream_name":"stdout","time":3653.246665176,"data":"        0.00        0   71.72   59.75\n"}
+,{"stream_name":"stdout","time":3653.246670143,"data":"        0.25      734   71.80   59.91\n"}
+,{"stream_name":"stdout","time":3653.246676763,"data":"        0.50     1433   71.72   59.97\n"}
+,{"stream_name":"stdout","time":3653.246679095,"data":"        1.00     2826   72.06   60.28\n"}
+,{"stream_name":"stdout","time":3653.541526113,"data":"emb/rstp_test.npz: 2000 captions, 1000 images, top-128 candidates\n"}
+,{"stream_name":"stdout","time":3653.702779072,"data":"[rstp_test] memory: 69017 entries (68126 annotated, 891 pseudo), pseudo-pair precision 73.2%\n"}
+,{"stream_name":"stdout","time":3741.076497646,"data":"[rstp_test] adaptation 8.2s for 2000 queries, peak VRAM 2.50 GiB\n"}
+,{"stream_name":"stdout","time":3741.076526241,"data":"method                                  R1      R5     R10     mAP\n"}
+,{"stream_name":"stdout","time":3741.076531482,"data":"ITC only                             46.25   71.45   80.35   33.94\n"}
+,{"stream_name":"stdout","time":3741.076549486,"data":"APTM (ITC-\u003eITM)                      55.05   77.45   85.40   38.98\n"}
+,{"stream_name":"stdout","time":3741.076553371,"data":"+ kNN memory (training-free)         55.05   77.45   85.40   38.98\n"}
+,{"stream_name":"stdout","time":3741.076562633,"data":"+ Q-prototype (training-free)        55.10   77.55   85.20   39.13\n"}
+,{"stream_name":"stdout","time":3741.076570657,"data":"+ R + g, no adherence loss           53.95   76.40   83.55   38.26\n"}
+,{"stream_name":"stdout","time":3741.076893138,"data":"+ R + g (RA-TBPS)                    52.35   73.90   81.25   35.63\n"}
+,{"stream_name":"stdout","time":3741.076907246,"data":"  diag: random evidence              54.35   75.95   82.95   37.49\n"}
+,{"stream_name":"stdout","time":3741.076911732,"data":"  diag: raw-cosine retriever         52.80   72.60   79.65   35.24\n"}
+,{"stream_name":"stdout","time":3741.076916098,"data":"  diag: source memory only           53.00   72.95   80.25   35.33\n"}
+,{"stream_name":"stdout","time":3741.076920351,"data":"  diag: pseudo memory only           52.70   73.85   81.40   36.00\n"}
+,{"stream_name":"stdout","time":3741.076924637,"data":"contextual sensitivity S_ctx: RA-TBPS 0.4807, no adherence loss 0.2882\n"}
+,{"stream_name":"stdout","time":3741.076944833,"data":"   K      R1     mAP  ms/query\n"}
+,{"stream_name":"stdout","time":3741.076955605,"data":"   1   53.20   35.94     0.302\n"}
+,{"stream_name":"stdout","time":3741.076959651,"data":"   2   51.90   35.34     0.561\n"}
+,{"stream_name":"stdout","time":3741.076962414,"data":"   4   52.35   35.63     1.080\n"}
+,{"stream_name":"stdout","time":3741.076965108,"data":"   8   52.95   35.74     2.104\n"}
+,{"stream_name":"stdout","time":3741.076967961,"data":" pseudo kept  entries      R1     mAP\n"}
+,{"stream_name":"stdout","time":3741.076970732,"data":"        0.00        0   53.00   35.33\n"}
+,{"stream_name":"stdout","time":3741.07697383,"data":"        0.25      249   52.55   35.66\n"}
+,{"stream_name":"stdout","time":3741.076976688,"data":"        0.50      462   53.10   35.66\n"}
+,{"stream_name":"stdout","time":3741.076979573,"data":"        1.00      891   52.35   35.63\n"}
+,{"stream_name":"stdout","time":3741.17520654,"data":"wrote /kaggle/working/ratbps\n"}
+,{"stream_name":"stdout","time":3741.995925123,"data":"done\n"}
+,{"stream_name":"stderr","time":3743.94853007,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3743.948593604,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3744.240603742,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3744.240631495,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3745.112877014,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3746.221133495,"data":"[NbConvertApp] Writing 412773 bytes to __results__.html\n"}
+]

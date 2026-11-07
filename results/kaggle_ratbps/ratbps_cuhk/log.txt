@@ -1,0 +1,46 @@
+args: {'src': 'emb/aptm_cuhk_train.npz', 'target': ['cuhk_test=emb/aptm_cuhk_test.npz'], 'out': '/kaggle/working/ratbps_cuhk', 'k': 4, 'ntr': 16, 'steps_r': 3000, 'steps_g': 3000, 'bs_r': 512, 'neg_r': 2048, 'bs_g': 64, 'lr': 0.0003, 'tau': 0.07, 'lam': 1.0, 'margin': 0.1, 'pseudo_r': 5, 'min_logodds': 0.0, 'seed': 0}
+simulation memory: 46803 entries (34008 annotated, 12795 pseudo), pseudo-pair precision 90.3%
+training retriever R
+  R step     0  L_align 7.7166
+  R step   500  L_align 0.5324
+  R step  1000  L_align 0.3832
+  R step  1500  L_align 0.2743
+  R step  2000  L_align 0.2170
+  R step  2500  L_align 0.1862
+  R step  2999  L_align 0.1610
+  R: evidence shows the candidate's identity 78.3% (at least one of top-4: 95.5%)
+training scorer g [full, lambda=1.0]
+  23709/34118 training queries have a match in their top-16
+  g step     0  L_rel 0.5838  L_irrel 0.5838
+  g step   500  L_rel 0.1262  L_irrel 0.2510
+  g step  1000  L_rel 0.1610  L_irrel 0.3757
+  g step  1500  L_rel 0.0538  L_irrel 0.2900
+  g step  2000  L_rel 0.2574  L_irrel 0.4132
+  g step  2500  L_rel 0.1670  L_irrel 0.2837
+  g step  2999  L_rel 0.1432  L_irrel 0.3292
+training scorer g [no_adhere, lambda=0.0]
+  23709/34118 training queries have a match in their top-16
+  g step     0  L_rel 0.4511  L_irrel 0.4511
+  g step   500  L_rel 0.2399  L_irrel 0.4062
+  g step  1000  L_rel 0.1988  L_irrel 0.3544
+  g step  1500  L_rel 0.2130  L_irrel 0.3799
+  g step  2000  L_rel 0.1100  L_irrel 0.3831
+  g step  2500  L_rel 0.2299  L_irrel 0.4596
+  g step  2999  L_rel 0.1576  L_irrel 0.2850
+training done in 617s
+  knn: beta=0.0 (simulation R1 60.00)
+  rocchio: beta=1.0 (simulation R1 60.07)
+  simulation R1: ITM 60.00, RA-TBPS 65.07
+[cuhk_test] memory: 70972 entries (68126 annotated, 2846 pseudo), pseudo-pair precision 90.0%
+[cuhk_test] adaptation 11.1s for 6156 queries, peak VRAM 2.16 GiB
+method                                  R1      R5     R10     mAP
+ITC only                             38.50   59.86   69.15   36.40
+APTM (ITC->ITM)                      70.63   84.54   87.30   58.54
++ kNN memory (training-free)         70.63   84.54   87.30   58.54
++ Q-prototype (training-free)        70.79   84.52   87.31   58.70
++ R + g, no adherence loss           70.84   84.23   87.15   58.95
++ R + g (RA-TBPS)                    70.60   84.28   87.25   58.44
+  diag: random evidence              70.42   84.32   87.20   58.13
+  diag: source memory only           70.22   83.43   86.94   57.73
+  diag: pseudo memory only           70.55   84.34   87.35   58.23
+wrote /kaggle/working/ratbps_cuhk

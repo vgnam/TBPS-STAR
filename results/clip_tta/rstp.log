@@ -1,0 +1,46 @@
+﻿results\kaggle_uatta_v1\clip_zeroshot_rstp_test.npz: 2000 queries, 1000 gallery images
+zero-shot                          R1  49.00  R5  73.40  R10  82.10  mAP  37.25  mINP  15.90
+memory: 2000 captions, 1167 mutual (top-5); pseudo precision all 49.0%, mutual 63.0%
+query-side evidence (b=0.5)        R1  47.35  R5  69.55  R10  79.15  mAP  40.25  mINP  20.76
+candidate-side evidence (g=0.5)    R1  48.05  R5  68.05  R10  76.80  mAP  27.71  mINP   7.15
+RA-TBPS-free (both)                R1  45.20  R5  67.05  R10  76.60  mAP  32.32  mINP  11.93
+  random query evidence            R1  42.90  R5  64.50  R10  74.55  mAP  25.43  mINP   6.34
+  memory without mutual filter     R1  44.85  R5  67.90  R10  76.80  mAP  33.62  mINP  13.04
+oracle sweep best b0.1_g0.0: R1 50.65 mAP 39.01
+training RA-TBPS (learned) (K=4, lambda=1.0)
+  scorer step 500: loss 0.9937 rank 0.9937
+  scorer step 1000: loss 0.3317 rank 0.3317
+  scorer step 1500: loss 0.0900 rank 0.0900
+  scorer step 2000: loss 0.0479 rank 0.0479
+  scorer step 2500: loss 0.0702 rank 0.0702
+  scorer step 3000: loss 0.1941 rank 0.1941
+RA-TBPS (learned)                  R1  47.30  R5  67.65  R10  79.50  mAP  36.21  mINP  16.37
+RA-TBPS (learned) / random evidence R1  35.20  R5  65.55  R10  78.15  mAP  30.98  mINP  14.00
+  S_ctx 0.827
+training no adherence (K=4, lambda=0.0)
+  scorer step 500: loss 0.8396 rank 0.8396
+  scorer step 1000: loss 0.2960 rank 0.2960
+  scorer step 1500: loss 0.0696 rank 0.0696
+  scorer step 2000: loss 0.0100 rank 0.0100
+  scorer step 2500: loss 0.0440 rank 0.0440
+  scorer step 3000: loss 0.0540 rank 0.0540
+  no adherence                     R1  47.80  R5  68.30  R10  79.55  mAP  36.71  mINP  16.46
+  no adherence / random evidence   R1  42.90  R5  67.60  R10  78.35  mAP  32.78  mINP  14.06
+  S_ctx 0.770
+  scorer step 500: loss 1.5434 rank 1.5434
+  scorer step 1000: loss 1.3458 rank 1.3458
+  scorer step 1500: loss 1.4113 rank 1.4113
+  scorer step 2000: loss 1.2491 rank 1.2491
+  scorer step 2500: loss 1.2926 rank 1.2926
+  scorer step 3000: loss 0.9653 rank 0.9653
+K=1: free R1 42.85 mAP 32.24 | learned R1 48.55 mAP 38.19 | 0.187 ms/query
+  scorer step 500: loss 1.0153 rank 1.0153
+  scorer step 1000: loss 1.0670 rank 1.0670
+  scorer step 1500: loss 0.7467 rank 0.7467
+  scorer step 2000: loss 0.3516 rank 0.3516
+  scorer step 2500: loss 0.1687 rank 0.1687
+  scorer step 3000: loss 0.1280 rank 0.1280
+K=2: free R1 44.45 mAP 32.39 | learned R1 47.35 mAP 36.54 | 0.276 ms/query
+K=4: free R1 45.20 mAP 32.32 | learned R1 47.30 mAP 36.21 | 0.528 ms/query
+  scorer step 500: loss 0.6494 rank 0.6494
+  scorer step 1000: loss 0.0747 rank 0.0747

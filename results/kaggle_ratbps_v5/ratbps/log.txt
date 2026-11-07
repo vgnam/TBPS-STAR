@@ -1,0 +1,109 @@
+args: {'src': 'emb/cuhk_train.npz', 'target': ['cuhk_test=emb/cuhk_test_fp16.npz', 'rstp_test=emb/rstp_test.npz'], 'out': '/kaggle/working/ratbps', 'k': 4, 'ks': '1,2,4,8', 'pseudo_fracs': '0,0.25,0.5,1', 'ntr': 16, 'steps_r': 3000, 'steps_g': 3000, 'bs_r': 512, 'neg_r': 2048, 'bs_g': 64, 'lr': 0.0003, 'tau': 0.07, 'lam': 1.0, 'margin': 0.1, 'pseudo_r': 5, 'min_logodds': 0.0, 'seed': 0}
+simulation memory: 46803 entries (34008 annotated, 12795 pseudo), pseudo-pair precision 90.3%
+training retriever R
+  R step     0  L_align 7.7166
+  R step   500  L_align 0.5324
+  R step  1000  L_align 0.3832
+  R step  1500  L_align 0.2743
+  R step  2000  L_align 0.2170
+  R step  2500  L_align 0.1862
+  R step  2999  L_align 0.1610
+  R: evidence shows the candidate's identity 78.3% (at least one of top-4: 95.5%)
+training scorer g [full, K=4, lambda=1.0]
+  23709/34118 training queries have a match in their top-16
+  g step     0  L_rel 0.5838  L_irrel 0.5838
+  g step   500  L_rel 0.1300  L_irrel 0.2623
+  g step  1000  L_rel 0.1606  L_irrel 0.3744
+  g step  1500  L_rel 0.0449  L_irrel 0.2943
+  g step  2000  L_rel 0.2202  L_irrel 0.4177
+  g step  2500  L_rel 0.1664  L_irrel 0.2830
+  g step  2999  L_rel 0.1497  L_irrel 0.3317
+training scorer g [no_adhere, K=4, lambda=0.0]
+  23709/34118 training queries have a match in their top-16
+  g step     0  L_rel 0.4511  L_irrel 0.4511
+  g step   500  L_rel 0.2611  L_irrel 0.3971
+  g step  1000  L_rel 0.2023  L_irrel 0.3669
+  g step  1500  L_rel 0.2198  L_irrel 0.3871
+  g step  2000  L_rel 0.1147  L_irrel 0.3808
+  g step  2500  L_rel 0.2901  L_irrel 0.5486
+  g step  2999  L_rel 0.1519  L_irrel 0.2971
+training scorer g [k1, K=1, lambda=1.0]
+  23709/34118 training queries have a match in their top-16
+  g step     0  L_rel 0.3733  L_irrel 0.3733
+  g step   500  L_rel 0.1899  L_irrel 0.3966
+  g step  1000  L_rel 0.1937  L_irrel 0.4524
+  g step  1500  L_rel 0.2358  L_irrel 0.3717
+  g step  2000  L_rel 0.2615  L_irrel 0.4039
+  g step  2500  L_rel 0.1856  L_irrel 0.4210
+  g step  2999  L_rel 0.2381  L_irrel 0.4223
+training scorer g [k2, K=2, lambda=1.0]
+  23709/34118 training queries have a match in their top-16
+  g step     0  L_rel 0.6354  L_irrel 0.6354
+  g step   500  L_rel 0.2251  L_irrel 0.3688
+  g step  1000  L_rel 0.1270  L_irrel 0.3216
+  g step  1500  L_rel 0.1157  L_irrel 0.2722
+  g step  2000  L_rel 0.2071  L_irrel 0.2819
+  g step  2500  L_rel 0.1022  L_irrel 0.2234
+  g step  2999  L_rel 0.1971  L_irrel 0.3665
+training scorer g [k8, K=8, lambda=1.0]
+  23709/34118 training queries have a match in their top-16
+  g step     0  L_rel 0.2823  L_irrel 0.2823
+  g step   500  L_rel 0.3618  L_irrel 0.4583
+  g step  1000  L_rel 0.2168  L_irrel 0.4630
+  g step  1500  L_rel 0.3162  L_irrel 0.6023
+  g step  2000  L_rel 0.0922  L_irrel 0.1923
+  g step  2500  L_rel 0.1421  L_irrel 0.3294
+  g step  2999  L_rel 0.2016  L_irrel 0.3441
+training done in 1125s
+  knn: beta=0.0 (simulation R1 60.00)
+  rocchio: beta=1.0 (simulation R1 60.07)
+  simulation R1: ITM 60.00, RA-TBPS 65.20
+[cuhk_test] memory: 70952 entries (68126 annotated, 2826 pseudo), pseudo-pair precision 90.2%
+[cuhk_test] adaptation 24.3s for 6156 queries, peak VRAM 3.48 GiB
+method                                  R1      R5     R10     mAP
+ITC only                             38.50   59.86   69.15   36.40
+APTM (ITC->ITM)                      71.73   86.74   90.25   60.93
++ kNN memory (training-free)         71.73   86.74   90.25   60.93
++ Q-prototype (training-free)        71.95   86.78   90.25   61.15
++ R + g, no adherence loss           72.16   86.39   89.99   61.37
++ R + g (RA-TBPS)                    72.06   86.53   89.64   60.28
+  diag: random evidence              72.58   86.42   90.38   61.61
+  diag: raw-cosine retriever         71.41   85.62   89.38   59.91
+  diag: source memory only           71.72   85.64   89.28   59.75
+  diag: pseudo memory only           72.17   87.04   90.37   60.74
+contextual sensitivity S_ctx: RA-TBPS 0.5116, no adherence loss 0.3370
+   K      R1     mAP  ms/query
+   1   72.16   60.75     0.301
+   2   71.69   60.49     0.553
+   4   72.06   60.28     1.083
+   8   71.69   59.45     2.105
+ pseudo kept  entries      R1     mAP
+        0.00        0   71.72   59.75
+        0.25      734   71.80   59.91
+        0.50     1433   71.72   59.97
+        1.00     2826   72.06   60.28
+[rstp_test] memory: 69017 entries (68126 annotated, 891 pseudo), pseudo-pair precision 73.2%
+[rstp_test] adaptation 8.2s for 2000 queries, peak VRAM 2.50 GiB
+method                                  R1      R5     R10     mAP
+ITC only                             46.25   71.45   80.35   33.94
+APTM (ITC->ITM)                      55.05   77.45   85.40   38.98
++ kNN memory (training-free)         55.05   77.45   85.40   38.98
++ Q-prototype (training-free)        55.10   77.55   85.20   39.13
++ R + g, no adherence loss           53.95   76.40   83.55   38.26
++ R + g (RA-TBPS)                    52.35   73.90   81.25   35.63
+  diag: random evidence              54.35   75.95   82.95   37.49
+  diag: raw-cosine retriever         52.80   72.60   79.65   35.24
+  diag: source memory only           53.00   72.95   80.25   35.33
+  diag: pseudo memory only           52.70   73.85   81.40   36.00
+contextual sensitivity S_ctx: RA-TBPS 0.4807, no adherence loss 0.2882
+   K      R1     mAP  ms/query
+   1   53.20   35.94     0.302
+   2   51.90   35.34     0.561
+   4   52.35   35.63     1.080
+   8   52.95   35.74     2.104
+ pseudo kept  entries      R1     mAP
+        0.00        0   53.00   35.33
+        0.25      249   52.55   35.66
+        0.50      462   53.10   35.66
+        1.00      891   52.35   35.63
+wrote /kaggle/working/ratbps

@@ -1,0 +1,15 @@
+
+== emb/irra_cuhk | query-aware calibrators (train: val, test: 5 seeds, 70% enrolled)
+model                             AUROC         FPR@95           OSCR         DIR@1%        DIR@10%
+(ref) max_cos                85.7 +-0.5     57.9 +-0.9     68.8 +-0.4     25.2 +-2.3     53.1 +-1.7
+LR topK                      86.0 +-0.5     57.4 +-0.4     68.9 +-0.4     25.2 +-2.1     53.8 +-1.2
+LR q-only (leak chk)         49.1 +-1.5     94.9 +-0.5     37.9 +-1.1      0.7 +-0.2      7.2 +-1.1
+LR topK+q                    85.7 +-0.6     58.3 +-1.4     68.6 +-0.5     26.8 +-2.1     53.0 +-1.2
+s1-expected                  82.7 +-0.7     55.0 +-0.5     64.9 +-0.3      8.0 +-1.7     39.0 +-2.3
+   (corr. predicted vs actual own-ID score on test: r = 0.438)
+
+== threshold for FAR=5% set on val (70% enrolled), applied to test at other gallery sizes
+model                              enr 0.2           enr 0.4           enr 0.7           enr 0.9
+(ref) max_cos            FAR  1.4 TAR 47.2 FAR  3.7 TAR 48.0 FAR  6.7 TAR 48.2 FAR  7.3 TAR 48.8
+s1-expected              FAR  1.4 TAR 27.8 FAR  3.6 TAR 26.6 FAR  5.3 TAR 27.3 FAR  6.0 TAR 28.6
+LR topK+q                FAR  1.3 TAR 48.6 FAR  4.2 TAR 49.9 FAR  8.2 TAR 52.5 FAR  8.6 TAR 54.5

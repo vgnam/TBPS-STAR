@@ -1,0 +1,20 @@
+
+== emb/irra_cuhk | calibrators trained on val, evaluated on test (5 seeds, 70% enrolled)
+model                             AUROC         FPR@95           OSCR         DIR@1%        DIR@10%
+(ref) max_cos                85.7 +-0.5     57.9 +-0.9     68.8 +-0.4     25.2 +-2.3     53.1 +-1.7
+LR-fix70-known               86.0 +-0.5     57.4 +-0.5     68.9 +-0.4     25.1 +-2.1     53.8 +-1.3
+GBM-fix70-known              86.1 +-0.3     56.6 +-0.9     68.8 +-0.3     29.5 +-1.6     54.4 +-0.5
+LR-fix70-correct             83.5 +-0.4     70.1 +-1.6     69.0 +-0.5     30.0 +-2.7     55.0 +-0.7
+GBM-fix70-correct            84.1 +-0.3     63.0 +-1.0     68.9 +-0.5     28.9 +-1.8     54.5 +-0.9
+LR-mix-known                 85.1 +-0.6     56.1 +-1.0     67.6 +-0.3     20.8 +-2.4     49.6 +-1.3
+GBM-mix-known                85.2 +-0.5     57.4 +-1.9     67.6 +-0.3     27.2 +-2.1     50.8 +-0.9
+LR-mix-correct               85.4 +-0.4     59.5 +-0.8     69.1 +-0.4     27.4 +-2.6     54.6 +-1.2
+GBM-mix-correct              84.5 +-0.3     61.1 +-1.2     68.9 +-0.5     28.1 +-1.8     54.4 +-0.7
+
+== threshold for FAR=5% set on val (70% enrolled), applied to test at other gallery sizes
+model                              enr 0.2           enr 0.4           enr 0.7           enr 0.9
+(ref) max_cos            FAR  1.4 TAR 47.2 FAR  3.7 TAR 48.0 FAR  6.7 TAR 48.2 FAR  7.3 TAR 48.8
+LR-fix70-known           FAR  1.2 TAR 43.9 FAR  2.9 TAR 47.3 FAR  6.8 TAR 49.9 FAR  7.6 TAR 50.6
+GBM-fix70-known          FAR  4.8 TAR 65.5 FAR  6.7 TAR 60.4 FAR  7.3 TAR 54.4 FAR  7.4 TAR 50.6
+LR-mix-known             FAR  0.1 TAR 19.4 FAR  1.4 TAR 33.3 FAR  6.6 TAR 44.7 FAR  9.1 TAR 50.3
+GBM-mix-known            FAR  0.7 TAR 36.8 FAR  2.8 TAR 43.7 FAR  7.1 TAR 51.4 FAR  9.9 TAR 54.3

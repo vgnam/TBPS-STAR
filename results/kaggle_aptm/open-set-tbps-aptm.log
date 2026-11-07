@@ -1,0 +1,46 @@
+[{"stream_name":"stdout","time":1.239213985,"data":"$ nvidia-smi --query-gpu=name,memory.total --format=csv\n"}
+,{"stream_name":"stdout","time":1.270486547,"data":"name, memory.total [MiB]\n"}
+,{"stream_name":"stdout","time":1.270519239,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":1.270524853,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":1.2776812419999999,"data":"$ pip install -q gdown uv\n"}
+,{"stream_name":"stdout","time":8.425103585,"data":"$ uv venv -q -p 3.11 /kaggle/temp/tbps/venv\n"}
+,{"stream_name":"stdout","time":10.014127433,"data":"$ uv pip install -q -p /kaggle/temp/tbps/venv/bin/python torch==2.3.1 torchvision==0.18.1 --index-url https://download.pytorch.org/whl/cu121\n"}
+,{"stream_name":"stdout","time":50.787935087,"data":"$ uv pip install -q -p /kaggle/temp/tbps/venv/bin/python transformers==4.30.2 timm==0.4.12 'numpy\u003c2' scipy pyyaml pillow\n"}
+,{"stream_name":"stdout","time":54.812626292,"data":"$ curl -sL --fail -o cuhk.tar.gz https://huggingface.co/datasets/cjc/CHUK-PEDES/resolve/main/CUHK-PEDES.tar.gz \u0026\u0026 mkdir -p data \u0026\u0026 tar -xzf cuhk.tar.gz -C data \u0026\u0026 rm cuhk.tar.gz\n"}
+,{"stream_name":"stdout","time":77.468352121,"data":"$ git clone -q --depth 1 https://github.com/Shuyu-XJTU/APTM aptm\n"}
+,{"stream_name":"stdout","time":78.372458209,"data":"$ gdown -q 1dokRhjYL71VbzFfLfyyDmh7MXUOyBySf -O ft_cuhk.zip \u0026\u0026 unzip -q -o ft_cuhk.zip -d ckpt \u0026\u0026 rm ft_cuhk.zip\n"}
+,{"stream_name":"stdout","time":98.563198757,"data":"checkpoint files: ['ckpt/ft_cuhk/checkpoint_best.pth']\n"}
+,{"stream_name":"stderr","time":108.052383806,"data":"/kaggle/temp/tbps/venv/lib/python3.11/site-packages/torch/functional.py:512: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3587.)\n"}
+,{"stream_name":"stderr","time":108.052417915,"data":"  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]\n"}
+,{"stream_name":"stdout","time":112.71956266,"data":"use_swin\n"}
+,{"stream_name":"stdout","time":112.719601702,"data":"loaded ckpt/ft_cuhk/checkpoint_best.pth: 0 missing, 0 unexpected\n"}
+,{"stream_name":"stdout","time":112.71960785,"data":"  missing: [] \n"}
+,{"stream_name":"stdout","time":112.719612284,"data":"  unexpected: []\n"}
+,{"stream_name":"stderr","time":113.499293903,"data":"/kaggle/temp/tbps/venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.\n"}
+,{"stream_name":"stderr","time":113.499331712,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":114.840385039,"data":"test: 3074 images, 6156 captions\n"}
+,{"stream_name":"stdout","time":132.231948667,"data":"  queries 4/6156  0s\n"}
+,{"stream_name":"stdout","time":166.835401487,"data":"  queries 1004/6156  35s\n"}
+,{"stream_name":"stdout","time":204.993803349,"data":"  queries 2004/6156  73s\n"}
+,{"stream_name":"stdout","time":247.487570986,"data":"  queries 3004/6156  115s\n"}
+,{"stream_name":"stdout","time":290.473985355,"data":"  queries 4004/6156  158s\n"}
+,{"stream_name":"stdout","time":332.780762594,"data":"  queries 5004/6156  201s\n"}
+,{"stream_name":"stdout","time":375.749231831,"data":"  queries 6004/6156  244s\n"}
+,{"stream_name":"stdout","time":382.25911128,"data":"test: R1 ITC 38.48 | R1 after ITM re-rank of top-64 70.65 (paper, test: 76.53)\n"}
+,{"stream_name":"stdout","time":382.360864646,"data":"val: 3078 images, 6158 captions\n"}
+,{"stream_name":"stdout","time":401.900484368,"data":"  queries 4/6158  0s\n"}
+,{"stream_name":"stdout","time":444.748494416,"data":"  queries 1004/6158  43s\n"}
+,{"stream_name":"stdout","time":487.687884365,"data":"  queries 2004/6158  86s\n"}
+,{"stream_name":"stdout","time":530.509601375,"data":"  queries 3004/6158  129s\n"}
+,{"stream_name":"stdout","time":573.383018678,"data":"  queries 4004/6158  172s\n"}
+,{"stream_name":"stdout","time":616.355702911,"data":"  queries 5004/6158  215s\n"}
+,{"stream_name":"stdout","time":659.165813212,"data":"  queries 6004/6158  257s\n"}
+,{"stream_name":"stdout","time":665.817892631,"data":"val: R1 ITC 40.68 | R1 after ITM re-rank of top-64 71.78 (paper, test: 76.53)\n"}
+,{"stream_name":"stdout","time":665.845909662,"data":"done\n"}
+,{"stream_name":"stderr","time":669.662429584,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":669.662468965,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":670.089852381,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":670.089881152,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":671.417804494,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":672.635996417,"data":"[NbConvertApp] Writing 318373 bytes to __results__.html\n"}
+]

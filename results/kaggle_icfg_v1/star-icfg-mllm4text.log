@@ -1,0 +1,97 @@
+[{"stream_name":"stdout","time":1.064928179,"data":"$ nvidia-smi --query-gpu=name,memory.total --format=csv\n"}
+,{"stream_name":"stdout","time":1.09684678,"data":"name, memory.total [MiB]\n"}
+,{"stream_name":"stdout","time":1.096881267,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":1.096886601,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":1.10391321,"data":"$ pip install -q easydict prettytable ftfy regex ruamel.yaml peft tensorboard\n"}
+,{"stream_name":"stdout","time":6.169926332,"data":"$ git clone -q --depth 1 https://github.com/nkuzjh/UATTA.git uatta\n"}
+,{"stream_name":"stdout","time":7.046104015,"data":"$ curl -sL --fail -o data/bpe_simple_vocab_16e6.txt.gz https://github.com/openai/CLIP/raw/main/clip/bpe_simple_vocab_16e6.txt.gz\n"}
+,{"stream_name":"stdout","time":7.588771966,"data":"$ mkdir -p checkpoints/mllm4text \u0026\u0026 curl -sL --fail -o checkpoints/mllm4text/best0.pth https://huggingface.co/datasets/TwT-6/MLLM4Text-ReID/resolve/main/best0.pth\n"}
+,{"stream_name":"stdout","time":17.470223235,"data":"$ mkdir -p input/images\n"}
+,{"stream_name":"stdout","time":17.473313772,"data":"$ ln -sfn \"$(dirname \"$(find /kaggle/input -name ICFG-PEDES.json | head -1)\")\" input/images/ICFG-PEDES\n"}
+,{"stream_name":"stdout","time":148.327416561,"data":"$ ls input/images/ICFG-PEDES\n"}
+,{"stream_name":"stdout","time":148.336344653,"data":"captions_cleaned.csv\n"}
+,{"stream_name":"stdout","time":148.336377256,"data":"captions.csv\n"}
+,{"stream_name":"stdout","time":148.336384027,"data":"ICFG-PEDES.json\n"}
+,{"stream_name":"stdout","time":148.336389273,"data":"imgs\n"}
+,{"stream_name":"stdout","time":148.336395402,"data":"invalid_paths.csv\n"}
+,{"stream_name":"stdout","time":148.391718624,"data":"$ python -u star_adapt.py tta_configs/ham_icfg_tta/mllm4text_config.yaml /kaggle/working/star_icfg.json hard_keep0.6_tau0.05,greedy_hard_keep0.6_tau0.05 42 2\u003e\u00261 | tee /kaggle/working/star_icfg.log\n"}
+,{"stream_name":"stdout","time":185.971622548,"data":"Training Model with ['sdm', 'id', 'mlm'] tasks\n"}
+,{"stream_name":"stdout","time":188.489033419,"data":"\r  0%|                                               | 0.00/335M [00:00\u003c?, ?iB/s]\r  0%|                                       | 288k/335M [00:00\u003c01:58, 2.95MiB/s]\r  1%|▍                                     | 3.92M/335M [00:00\u003c00:14, 23.6MiB/s]\r  6%|██▏                                   | 19.5M/335M [00:00\u003c00:03, 87.3MiB/s]\r 11%|████▏                                  | 35.8M/335M [00:00\u003c00:02, 120MiB/s]\r 16%|██████▏                                | 53.2M/335M [00:00\u003c00:02, 143MiB/s]\r 20%|███████▊                               | 66.8M/335M [00:00\u003c00:02, 104MiB/s]\r 25%|█████████▋                             | 82.6M/335M [00:00\u003c00:02, 120MiB/s]\r 31%|████████████▎                           | 102M/335M [00:00\u003c00:01, 144MiB/s]\r 37%|██████████████▊                         | 123M/335M [00:01\u003c00:01, 165MiB/s]\r 44%|█████████████████▍                      | 146M/335M [00:01\u003c00:01, 184MiB/s]\r 51%|████████████████████▎                   | 170M/335M [00:01\u003c00:00, 204MiB/s]\r 57%|██████████████████████▋                 | 190M/335M [00:01\u003c00:00, 203MiB/s]\r 63%|█████████████████████████               | 210M/335M [00:01\u003c00:00, 188MiB/s]\r 68%|███████████████████████████▎            | 229M/335M [00:01\u003c00:00, 191MiB/s]\r 74%|█████████████████████████████▌          | 247M/335M [00:01\u003c00:00, 174MiB/s]\r 79%|███████████████████████████████▋        | 265M/335M [00:01\u003c00:00, 165MiB/s]\r 84%|█████████████████████████████████▌      | 281M/335M [00:01\u003c00:00, 163MiB/s]\r 89%|███████████████████████████████████▍    | 297M/335M [00:02\u003c00:00, 160MiB/s]\r 93%|█████████████████████████████████████▎  | 312M/335M [00:02\u003c00:00, 158MiB/s]\r 98%|███████████████████████████████████████ | 327M/335M [00:02\u003c00:00, 156MiB/s]\r100%|████████████████████████████████████████| 335M/335M [00:02\u003c00:00, 153MiB/s]\n"}
+,{"stream_name":"stdout","time":192.524613303,"data":"===========================ERROR occur in copy visual.positional_embedding, torch.Size([197, 768])=========================\n"}
+,{"stream_name":"stdout","time":192.526377285,"data":"shape do not match in k :visual.positional_embedding: param_dicttorch.Size([197, 768]) vs self.state_dict()torch.Size([193, 768])\n"}
+,{"stream_name":"stdout","time":195.09245454,"data":"/kaggle/temp/uatta/uatta/IRRA_UATTA/star_adapt.py:120: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n"}
+,{"stream_name":"stdout","time":195.092485172,"data":"  with torch.no_grad(), torch.cuda.amp.autocast():\n"}
+,{"stream_name":"stdout","time":197.88144319,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":197.882496674,"data":"  File \"/kaggle/temp/uatta/uatta/IRRA_UATTA/star_adapt.py\", line 216, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":197.882524147,"data":"    main()\n"}
+,{"stream_name":"stdout","time":197.882529826,"data":"    ~~~~^^\n"}
+,{"stream_name":"stdout","time":197.882534378,"data":"  File \"/kaggle/temp/uatta/uatta/IRRA_UATTA/star_adapt.py\", line 121, in main\n"}
+,{"stream_name":"stdout","time":197.882539537,"data":"    for pid, img in img_loader:\n"}
+,{"stream_name":"stdout","time":197.88254432,"data":"                    ^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":197.88254890299999,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/data/dataloader.py\", line 741, in __next__\n"}
+,{"stream_name":"stdout","time":197.882554454,"data":"    data = self._next_data()\n"}
+,{"stream_name":"stdout","time":197.882558511,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/data/dataloader.py\", line 1548, in _next_data\n"}
+,{"stream_name":"stdout","time":197.882562666,"data":"    return self._process_data(data, worker_id)\n"}
+,{"stream_name":"stdout","time":197.882566194,"data":"           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":197.88257024,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/data/dataloader.py\", line 1586, in _process_data\n"}
+,{"stream_name":"stdout","time":197.882573988,"data":"    data.reraise()\n"}
+,{"stream_name":"stdout","time":197.882577632,"data":"    ~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stdout","time":197.882581573,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/_utils.py\", line 785, in reraise\n"}
+,{"stream_name":"stdout","time":197.88258545,"data":"    raise exception\n"}
+,{"stream_name":"stdout","time":197.882589157,"data":"OSError: Caught OSError in DataLoader worker process 0.\n"}
+,{"stream_name":"stdout","time":197.882593158,"data":"Original Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":197.882610821,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/data/_utils/worker.py\", line 358, in _worker_loop\n"}
+,{"stream_name":"stdout","time":197.882616262,"data":"    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]\n"}
+,{"stream_name":"stdout","time":197.882621584,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/data/_utils/fetch.py\", line 54, in fetch\n"}
+,{"stream_name":"stdout","time":197.882626438,"data":"    data = [self.dataset[idx] for idx in possibly_batched_index]\n"}
+,{"stream_name":"stdout","time":197.882631728,"data":"            ~~~~~~~~~~~~^^^^^\n"}
+,{"stream_name":"stdout","time":197.882636709,"data":"  File \"/kaggle/temp/uatta/uatta/IRRA_UATTA/datasets/bases.py\", line 98, in __getitem__\n"}
+,{"stream_name":"stdout","time":197.882641125,"data":"    img = read_image(img_path)\n"}
+,{"stream_name":"stdout","time":197.882646059,"data":"  File \"/kaggle/temp/uatta/uatta/IRRA_UATTA/utils/iotools.py\", line 21, in read_image\n"}
+,{"stream_name":"stdout","time":197.88265038,"data":"    raise IOError(\"{} does not exist\".format(img_path))\n"}
+,{"stream_name":"stdout","time":197.882655243,"data":"OSError: ./input/images/ICFG-PEDES/imgs/test/0461/0461_001_14_0303afternoon_0159_0_ex.jpg does not exist\n"}
+,{"stream_name":"stdout","time":197.882660988,"data":"\n"}
+,{"stream_name":"stdout","time":203.232128555,"data":"$ python -u tta_baselines.py tta_configs/ham_icfg_tta/mllm4text_config.yaml /kaggle/working/baselines_icfg.json tcr 2\u003e\u00261 | tee /kaggle/working/baselines_icfg.log\n"}
+,{"stream_name":"stdout","time":213.371431077,"data":"Training Model with ['sdm', 'id', 'mlm'] tasks\n"}
+,{"stream_name":"stdout","time":217.10472022,"data":"===========================ERROR occur in copy visual.positional_embedding, torch.Size([197, 768])=========================\n"}
+,{"stream_name":"stdout","time":217.10597581,"data":"shape do not match in k :visual.positional_embedding: param_dicttorch.Size([197, 768]) vs self.state_dict()torch.Size([193, 768])\n"}
+,{"stream_name":"stdout","time":219.755546817,"data":"/kaggle/temp/uatta/uatta/IRRA_UATTA/tta_baselines.py:134: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n"}
+,{"stream_name":"stdout","time":219.755579745,"data":"  with torch.no_grad(), torch.cuda.amp.autocast():\n"}
+,{"stream_name":"stdout","time":219.979057957,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":219.980331978,"data":"  File \"/kaggle/temp/uatta/uatta/IRRA_UATTA/tta_baselines.py\", line 228, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":219.981129286,"data":"    main()\n"}
+,{"stream_name":"stdout","time":219.981141507,"data":"    ~~~~^^\n"}
+,{"stream_name":"stdout","time":219.98114681,"data":"  File \"/kaggle/temp/uatta/uatta/IRRA_UATTA/tta_baselines.py\", line 135, in main\n"}
+,{"stream_name":"stdout","time":219.981152416,"data":"    for pid, img in img_loader:\n"}
+,{"stream_name":"stdout","time":219.981157602,"data":"                    ^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":219.98116262,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/data/dataloader.py\", line 741, in __next__\n"}
+,{"stream_name":"stdout","time":219.981168721,"data":"    data = self._next_data()\n"}
+,{"stream_name":"stdout","time":219.981173759,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/data/dataloader.py\", line 1548, in _next_data\n"}
+,{"stream_name":"stdout","time":219.981264275,"data":"    return self._process_data(data, worker_id)\n"}
+,{"stream_name":"stdout","time":219.981282268,"data":"           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":219.981299538,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/data/dataloader.py\", line 1586, in _process_data\n"}
+,{"stream_name":"stdout","time":219.981304104,"data":"    data.reraise()\n"}
+,{"stream_name":"stdout","time":219.981308015,"data":"    ~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stdout","time":219.981311913,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/_utils.py\", line 785, in reraise\n"}
+,{"stream_name":"stdout","time":219.981316264,"data":"    raise exception\n"}
+,{"stream_name":"stdout","time":219.981372141,"data":"OSError: Caught OSError in DataLoader worker process 0.\n"}
+,{"stream_name":"stdout","time":219.981377393,"data":"Original Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":219.98138148499999,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/data/_utils/worker.py\", line 358, in _worker_loop\n"}
+,{"stream_name":"stdout","time":219.981385833,"data":"    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]\n"}
+,{"stream_name":"stdout","time":219.981389988,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/data/_utils/fetch.py\", line 54, in fetch\n"}
+,{"stream_name":"stdout","time":219.981394354,"data":"    data = [self.dataset[idx] for idx in possibly_batched_index]\n"}
+,{"stream_name":"stdout","time":219.981402553,"data":"            ~~~~~~~~~~~~^^^^^\n"}
+,{"stream_name":"stdout","time":219.981406591,"data":"  File \"/kaggle/temp/uatta/uatta/IRRA_UATTA/datasets/bases.py\", line 98, in __getitem__\n"}
+,{"stream_name":"stdout","time":219.981410877,"data":"    img = read_image(img_path)\n"}
+,{"stream_name":"stdout","time":219.981414791,"data":"  File \"/kaggle/temp/uatta/uatta/IRRA_UATTA/utils/iotools.py\", line 21, in read_image\n"}
+,{"stream_name":"stdout","time":219.981444637,"data":"    raise IOError(\"{} does not exist\".format(img_path))\n"}
+,{"stream_name":"stdout","time":219.98144946,"data":"OSError: ./input/images/ICFG-PEDES/imgs/test/0461/0461_001_14_0303afternoon_0159_0_ex.jpg does not exist\n"}
+,{"stream_name":"stdout","time":219.981453772,"data":"\n"}
+,{"stream_name":"stdout","time":222.362703203,"data":"done\n"}
+,{"stream_name":"stderr","time":224.983408754,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":224.983447716,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":225.277368862,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":225.277396383,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":226.18205187,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":227.372485567,"data":"[NbConvertApp] Writing 330510 bytes to __results__.html\n"}
+]

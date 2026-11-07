@@ -1,0 +1,19 @@
+# environments and scratch
+.venv/
+.tmp/
+__pycache__/
+*.pyc
+
+# data, weights and embeddings (download separately)
+data/
+checkpoints/
+emb/
+third_party/
+*.npz
+*.pt
+*.pth
+*.zip
+*.tar.gz
+
+# generated Kaggle kernels (rebuild with kernel_*/build.py)
+kernel*/out/

@@ -1,0 +1,12 @@
+﻿results\kaggle_uatta_v1\clip_zeroshot_cuhk_test.npz: 6156 queries, 3074 gallery images
+zero-shot                          R1  57.62  R5  75.99  R10  82.72  mAP  51.45  mINP  35.73
+memory: 6156 captions, 4277 mutual (top-5); pseudo precision all 57.6%, mutual 70.0%
+query-side evidence (b=0.5)        R1  49.03  R5  72.12  R10  79.97  mAP  50.61  mINP  40.14
+candidate-side evidence (g=0.5)    R1  53.98  R5  72.22  R10  78.95  mAP  40.60  mINP  19.41
+RA-TBPS-free (both)                R1  46.64  R5  69.96  R10  77.75  mAP  43.48  mINP  28.66
+  random query evidence            R1  48.08  R5  68.62  R10  76.15  mAP  36.89  mINP  17.10
+  memory without mutual filter     R1  47.50  R5  70.13  R10  78.41  mAP  44.82  mINP  30.06
+oracle sweep best b0.0_g0.0: R1 57.62 mAP 51.45
+training RA-TBPS (learned) (K=4, lambda=1.0)
+  scorer step 500: loss 1.4946 rank 1.4946
+  scorer step 1000: loss 0.9517 rank 0.9517

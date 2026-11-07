@@ -1,0 +1,32 @@
+
+== ITM verifier (results/kaggle_itm/itm_blipbase, itm_logit) | 70% enrolled, 5 seeds | enrolled candidate in top-K for 100.0% of queries
+closed-set R1 on known: IRRA 76.7 | ITM re-rank 57.8
+confidence                            AUROC         FPR@95           OSCR         DIR@1%        DIR@10%
+max_cos (IRRA)                   85.7 +-0.5     57.9 +-0.9     68.8 +-0.4     25.2 +-2.3     53.1 +-1.7
+ITM of IRRA top-1                72.4 +-0.4     82.7 +-1.8     59.4 +-0.6     12.9 +-1.4     34.3 +-0.7
+max ITM over top-K               70.5 +-0.6     80.8 +-1.4     56.8 +-0.6     10.9 +-1.6     29.1 +-1.5
+max ITM + ITM re-rank            70.5 +-0.6     80.8 +-1.4     45.3 +-0.7     10.5 +-1.4     26.1 +-1.2
+LR(s1, ITM) fused [val]          86.3 +-0.5     56.5 +-0.3     69.5 +-0.4     28.4 +-1.4     55.5 +-1.5
+LR fused + ITM re-rank           86.3 +-0.5     56.5 +-0.3     52.7 +-0.5     24.1 +-1.1     43.5 +-1.2
+
+== threshold for FAR=5% set on val (70%), applied to test at other gallery sizes
+confidence                             enr 0.2           enr 0.4           enr 0.7           enr 0.9
+max_cos (IRRA)               FAR  1.5 TAR 47.8 FAR  3.8 TAR 48.7 FAR  7.2 TAR 48.8 FAR  7.4 TAR 49.5
+max ITM over top-K           FAR  2.0 TAR 23.0 FAR  3.8 TAR 23.3 FAR  5.8 TAR 22.1 FAR  7.9 TAR 23.6
+LR fused                     FAR  1.3 TAR 49.3 FAR  3.7 TAR 50.6 FAR  7.1 TAR 50.8 FAR  8.0 TAR 52.0
+
+== ITM verifier (results/kaggle_itm/itm_blipbase, itm) | 70% enrolled, 5 seeds | enrolled candidate in top-K for 100.0% of queries
+closed-set R1 on known: IRRA 76.7 | ITM re-rank 57.8
+confidence                            AUROC         FPR@95           OSCR         DIR@1%        DIR@10%
+max_cos (IRRA)                   85.7 +-0.5     57.9 +-0.9     68.8 +-0.4     25.2 +-2.3     53.1 +-1.7
+ITM of IRRA top-1                72.4 +-0.4     82.7 +-1.8     59.4 +-0.6     12.9 +-1.4     34.3 +-0.7
+max ITM over top-K               70.5 +-0.6     80.8 +-1.4     56.8 +-0.6     10.9 +-1.6     29.1 +-1.5
+max ITM + ITM re-rank            70.5 +-0.6     80.8 +-1.4     45.3 +-0.7     10.5 +-1.4     26.1 +-1.2
+LR(s1, ITM) fused [val]          86.1 +-0.5     56.2 +-0.2     69.3 +-0.4     27.5 +-1.7     54.9 +-1.6
+LR fused + ITM re-rank           86.1 +-0.5     56.2 +-0.2     52.5 +-0.5     23.1 +-1.3     42.8 +-1.2
+
+== threshold for FAR=5% set on val (70%), applied to test at other gallery sizes
+confidence                             enr 0.2           enr 0.4           enr 0.7           enr 0.9
+max_cos (IRRA)               FAR  1.5 TAR 47.8 FAR  3.8 TAR 48.7 FAR  7.2 TAR 48.8 FAR  7.4 TAR 49.5
+max ITM over top-K           FAR  2.0 TAR 23.0 FAR  3.8 TAR 23.3 FAR  5.8 TAR 22.1 FAR  7.9 TAR 23.6
+LR fused                     FAR  1.4 TAR 49.4 FAR  3.9 TAR 51.4 FAR  7.3 TAR 51.3 FAR  8.2 TAR 52.4

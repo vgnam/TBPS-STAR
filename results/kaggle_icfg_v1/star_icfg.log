@@ -1,0 +1,36 @@
+Training Model with ['sdm', 'id', 'mlm'] tasks
+  0%|                                               | 0.00/335M [00:00<?, ?iB/s]  0%|                                       | 288k/335M [00:00<01:58, 2.95MiB/s]  1%|▍                                     | 3.92M/335M [00:00<00:14, 23.6MiB/s]  6%|██▏                                   | 19.5M/335M [00:00<00:03, 87.3MiB/s] 11%|████▏                                  | 35.8M/335M [00:00<00:02, 120MiB/s] 16%|██████▏                                | 53.2M/335M [00:00<00:02, 143MiB/s] 20%|███████▊                               | 66.8M/335M [00:00<00:02, 104MiB/s] 25%|█████████▋                             | 82.6M/335M [00:00<00:02, 120MiB/s] 31%|████████████▎                           | 102M/335M [00:00<00:01, 144MiB/s] 37%|██████████████▊                         | 123M/335M [00:01<00:01, 165MiB/s] 44%|█████████████████▍                      | 146M/335M [00:01<00:01, 184MiB/s] 51%|████████████████████▎                   | 170M/335M [00:01<00:00, 204MiB/s] 57%|██████████████████████▋                 | 190M/335M [00:01<00:00, 203MiB/s] 63%|█████████████████████████               | 210M/335M [00:01<00:00, 188MiB/s] 68%|███████████████████████████▎            | 229M/335M [00:01<00:00, 191MiB/s] 74%|█████████████████████████████▌          | 247M/335M [00:01<00:00, 174MiB/s] 79%|███████████████████████████████▋        | 265M/335M [00:01<00:00, 165MiB/s] 84%|█████████████████████████████████▌      | 281M/335M [00:01<00:00, 163MiB/s] 89%|███████████████████████████████████▍    | 297M/335M [00:02<00:00, 160MiB/s] 93%|█████████████████████████████████████▎  | 312M/335M [00:02<00:00, 158MiB/s] 98%|███████████████████████████████████████ | 327M/335M [00:02<00:00, 156MiB/s]100%|████████████████████████████████████████| 335M/335M [00:02<00:00, 153MiB/s]
+===========================ERROR occur in copy visual.positional_embedding, torch.Size([197, 768])=========================
+shape do not match in k :visual.positional_embedding: param_dicttorch.Size([197, 768]) vs self.state_dict()torch.Size([193, 768])
+/kaggle/temp/uatta/uatta/IRRA_UATTA/star_adapt.py:120: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.no_grad(), torch.cuda.amp.autocast():
+Traceback (most recent call last):
+  File "/kaggle/temp/uatta/uatta/IRRA_UATTA/star_adapt.py", line 216, in <module>
+    main()
+    ~~~~^^
+  File "/kaggle/temp/uatta/uatta/IRRA_UATTA/star_adapt.py", line 121, in main
+    for pid, img in img_loader:
+                    ^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.13/dist-packages/torch/utils/data/dataloader.py", line 1548, in _next_data
+    return self._process_data(data, worker_id)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+    data.reraise()
+    ~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/dist-packages/torch/_utils.py", line 785, in reraise
+    raise exception
+OSError: Caught OSError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/dist-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+  File "/usr/local/lib/python3.13/dist-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/kaggle/temp/uatta/uatta/IRRA_UATTA/datasets/bases.py", line 98, in __getitem__
+    img = read_image(img_path)
+  File "/kaggle/temp/uatta/uatta/IRRA_UATTA/utils/iotools.py", line 21, in read_image
+    raise IOError("{} does not exist".format(img_path))
+OSError: ./input/images/ICFG-PEDES/imgs/test/0461/0461_001_14_0303afternoon_0159_0_ex.jpg does not exist
+
